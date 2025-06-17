@@ -1,0 +1,101 @@
+\documentclass[12pt]{exam}
+\usepackage[
+  letterpaper,
+  margin=0.3in,
+  includehead,    % include the header area in the 0.25in margin
+  includefoot     % include the footer area in the 0.25in margin
+]{geometry}
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate,1]{label=(\alph*)} %makes list alphabetic
+
+\usepackage{physics}
+\usepackage{amsfonts}
+\newcommand{\C}{\mathbb{C}}
+\usepackage{pgfplots} % For sketching graphs
+\pgfplotsset{compat=1.18}
+
+
+\usepackage{caption}
+
+\usepackage[hidelinks]{hyperref}
+
+\makeatletter
+  % Save the original \section into \EXAM@orig@section
+  \let\EXAM@orig@section\section
+  \renewcommand{\section}[1]{
+    \refstepcounter{section}
+    \EXAM@orig@section*{#1~\thesection}
+    
+    \addcontentsline{toc}{section}{#1~\thesection}
+  }
+\makeatother
+
+\usepackage{etoolbox}
+
+\newcounter{exercise}[section]
+\renewcommand{\theexercise}{\thesection.\arabic{exercise}}
+\newcounter{problem}[section]
+\renewcommand{\theproblem}{\thesection.\arabic{problem}}
+
+\makeatletter
+  \let\EXAM@orig@subsection\subsection
+
+  %Redefine \subsection itself:
+  \renewcommand{\subsection}[1]{
+    \ifstrequal{#1}{Exercise}{
+      \refstepcounter{exercise}
+      \EXAM@orig@subsection*{#1~\theexercise}
+      \addcontentsline{toc}{subsection}{#1~\theexercise}
+    }{
+      \ifstrequal{#1}{Problem}{
+        \refstepcounter{problem}
+        \EXAM@orig@subsection*{#1~\theproblem}
+        \addcontentsline{toc}{subsection}{#1~\theproblem}
+      }{
+        \refstepcounter{subsection}%
+        \EXAM@orig@subsection*{#1~\thesubsection}%
+        \addcontentsline{toc}{subsection}{#1~\thesubsection}
+      }
+    }
+  }
+\makeatother
+
+\usepackage{hanging}
+
+
+\title{%
+  \centering
+  Quantum Computation and Quantum Information\\
+  Solution Manual\\
+  \small
+  For Michael A. Nielsen and Isaac L. Chuang’s 10th Anniversary Edition
+}
+
+\author{By Justin Beltran}
+\date{May 2025}
+
+\begin{document}
+
+\maketitle
+\firstpagefooter{}{}{By Justin Beltran}
+\runningfooter{}{}{By Justin Beltran}
+\printanswers
+
+
+
+\section{Chapter}
+
+\subsection{Exercise}
+\textbf{(Probabilistic classical algorithm)} Suppose that the problem is not to distinguish between the constant and balanced functions \textit{with certainty}, but rather, with some probability of error $\epsilon < 1/2$. What is the performance of the best classical algorithm for this problem?
+
+\begin{solution}
+    The best classical algorithm for Deutsch's problem with 100\% success would require $2^{n-1}+1$ queries because Alice may receive $2^{n-1}$ 0's before receiving a 1. The best probabalistic classical algorithm for the same problem with $\epsilon < 1/2$ would be 3 queries. The first query establishes a baseline and the second has probability 1/2 of matching the first but 3 queries would have probability 1/4. Generalizing this for $q$ queries with probability of error $\epsilon$ is $$\epsilon < \frac{1}{2^{q-1}} = 2^{-q+1} \quad \implies \quad \log\frac{1}{\epsilon} + 1 < q \quad \implies \quad O\big(\log\frac{1}{\epsilon}\big)$$
+\end{solution}
+
+
+
+
+
+
+
+\end{document}

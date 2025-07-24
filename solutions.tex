@@ -61,6 +61,7 @@
 \makeatother
 
 \usepackage{hanging}
+\usepackage{parskip}
 
 
 \title{%
@@ -94,7 +95,6 @@
 
 
 
-
 \subsection{Exercise}
 Explain how a device which, upon input of one of two non-orthogonal quantum states $\ket{\psi}$ or $\ket{\varphi}$ correctly identified the state, could be used to build a device which cloned the states $\ket{\psi}$ and $\ket{\varphi}$, in violation of the no-cloning theorem. Conversely, explain how a device for cloning could be used to distinguish non-orthogonal quantum states.
 
@@ -105,6 +105,60 @@ Explain how a device which, upon input of one of two non-orthogonal quantum stat
         \item A device that clones quantum states could distinguish non-orthogonal quantum states by setting up $many$ clones then measuring all the clones to reconstruct the quantum state perfectly.
     \end{enumerate}
 \end{solution}
+
+
+
+\subsection{Problem} 
+\textbf{(Feynman - Gates conversation)}
+Construct a friendly imaginary discussion of about 2000 words between Bill Gates and Richard Feynman, set in the present, on the future of computation. (\textit{Comment: }You might like to try waiting until you’ve read the rest of the book before attempting this question. See the ‘History and further reading’ below for pointers to one possible answer for this question.)
+
+\begin{solution}
+For brevity, this was shortened well below 2000 words:\\
+Gates: Isn’t the way you do computing different?\\
+Feynman: Yes, rooted in physics and math but computers perform huge calculations and sometimes suggest unconsidered ideas.\\
+Gates: How do you view the difference between your work in the war and that now?\\
+Feynman: We did what was necessary to win the war. Afterwards, many of us questioned the bomb’s impact. I returned to physics at Caltech, but I learned that even simple machines can yield vital results.\\
+Gates: You predicted unseen computers by 2050.\\
+Feynman: I studied the physical limits of computation and found no quantum mechanical barrier to miniaturization—only considerations of thermodynamics and reversibility. If you want atomic‐scale machines, you must use quantum mechanics rather than classical physics.\\
+Gates: Why derive Shannon’s theorem three different ways?\\
+Feynman: Deriving known results independently teaches you new insights. \\
+Gates: At Microsoft, we focus on usability and extending human cognition.\\
+Feynman: I’m interested. In physics, my Feynman diagrams simplified months of work into an evening. Tools that simplify complexity and reveal new layers are invaluable.\\
+Gates: How do you anticipate computing’s future?\\
+Feynman: We need computers modeled on natural laws so programs adapt gracefully to changing boundary conditions, reducing unforeseen errors.\\
+Gates: Does that mean programmers must be physicists?\\
+Feynman: Fundamental physical laws are simple; knowing some physics helps, but it isn’t mandatory.\\
+Gates: How would nature-based model software affect testing?\\
+Feynman: Testing becomes more straightforward—failures can reveal new phenomena rather than just bugs.\\
+Gates: So software can be “quantized”?\\
+Feynman: Yes—small, self‐contained modules that solve specific problems.\\
+Gates: Good software engineers draw inspiration across disciplines.\\
+Feynman: Agreed—like in physics, varied perspectives uncover truths.\\
+Gates: Your most interesting work since your Nobel Prize?\\
+Feynman: Theory of liquid helium, laws of weak interaction, parton theory. Now I’m just playing with new ideas.\\
+Gates: Any disappointments?\\
+Feynman: Turbulence and superconductivity remain unsolved.  I failed but tackling them was rewarding.\\
+Gates: Complexity’s big question?\\
+Feynman: How simple rules give rise to complex behavior from bee swarms to neural networks. It demands interdisciplinary study.\\
+Gates: Will you consult for Microsoft?\\
+Feynman: That’s the “wackiest idea” I’ve heard! Perhaps. A software revolution is coming; imagination is key.
+\end{solution}
+
+
+
+\subsection{Problem} What is the most significant discovery yet made in quantum computation and quantum information? Write an essay of about 2000 words for an educated lay audience about the discovery. (\textit{Comment}: As for the previous problem, you might like to try waiting until you’ve read the rest of the book before attempting this question.)
+
+\begin{solution}
+Again for brevity, this was shortened well below 2000 words:\\
+    The most important discovery that has been made in quantum computation and quantum information I believe is the qubit $\ket{\psi}$. Without high-level quantum computers being widely available, algorithm designers or more generally theorists could not continue to research or develop ideas without the mathematical formalism of the qubit. That is the the notion of a fundamental unit of quantum information is a two-level quantum system, i.e. the qubit, rather than a classical bit or bitstring. Further that this qubit can exist in a coherent superposition $\ket{\psi} = \alpha \ket{0} + \beta\ket{1}$ and again more generally that $\alpha$ and $\beta$ can be any complex coefficient in $\C$ that obey $|\alpha|^2 + |\beta|^2  = 1$. This laid the groundwork for encoding information in quantum amplitudes and opened the door to phenomena such as entanglement or interference which have no classical analogue. These additional processes are where the most significant algorithms like Shor's or Grover's extract most of their power. 
+    
+    This formalism of the qubit also extends nicely to
+    many body systems via the tensor product $\otimes$ where two qubit's, $\ket{\psi}$ and $\ket{\phi}$, combined state can be written $\ket{\psi} \otimes \ket{\phi}$. From here the idea of the 2-Dimensional Hilbert Space $\mathcal{H_2} = \C^2$ arises and by choosing an orthonormal basis: $\{\ket{0}, \ket{1}\}$, a diagonal basis: $\{\ket{+}, \ket{-}\}$ is generated where  $\ket{+} = (\ket{0} + \ket{1})/\sqrt{2}, \quad \ket{-} = (\ket{0} - \ket{1})/\sqrt{2}$. Combining this concept with the previously mentioned tensor product the Hilbert Space grows with the number of these qubits to $\mathcal{H} = (\C^2)^{\otimes n}$ for $n$ qubits. Which provides enough mathematical foundation for the ideas of quantum computation and quantum information to be explored before the arrival of widespread quantum hardware.
+\end{solution}
+
+
+
+
 
 
 

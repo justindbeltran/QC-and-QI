@@ -160,6 +160,30 @@ Again for brevity, this was shortened well below 2000 words:\\
 
 
 
+\vspace{12pt}
+\section{Chapter}
+
+\subsection{Exercise}
+\textbf{(Linear dependence: example)} Show that (1, -1), (1, 2) and (2, 1) are linearly dependent.
+
+\begin{solution}
+    They are linearly dependent if a set $a_1,..., a_n \in \C$ with $a_i \neq 0$ for at least one value of $i$ s.t. $a_1\ket{v_1} + a_2\ket{v_2} + a_3\ket{v_3} = 0$ now choose $a_1 = 1, a_2 = 1, a_3 =-1$ and observe that $$\begin{bmatrix}  1 \\ -1 \end{bmatrix} + \begin{bmatrix}  1 \\ 2 \end{bmatrix} - \begin{bmatrix}  2 \\ 1 \end{bmatrix} = 0 $$ Note this is generalizable to any $x \in \C$ where $a_1 = x, a_2 = x, a_3 =-x$.
+\end{solution}
+
+
+
+\subsection{Exercise} \textbf{(Matrix representations: example)} Suppose V is a vector space with basis vectors $\ket{0}$ and $\ket{1}$, and $A$ is a linear operator from $V$ to $V$ such that $A\ket{0} = \ket{1}$ and  $A\ket{1} = \ket{0}$. Give a matrix representation for $A$, with respect to the input basis $\ket{0}, \ket{1}$, and the output basis $\ket{0}, \ket{1}$. Find input and output bases which give rise to a different matrix representation of $A$.
+
+\begin{solution}
+    For vector space $V$ with basis $\ket{0}, \ket{1}$ and $A: V \mapsto V$ as described then 
+    $$ A \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \implies \quad \begin{bmatrix} a_1 & a_2  \\ a_3 & a_4 \end{bmatrix}\begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} a_1 \\ a_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$$ which implies $a_1 = 0, a_3 = 1$ then using $A\ket{1} = \ket{0}$ find 
+    $$A \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \implies \quad \begin{bmatrix} 0 & a_2  \\ 1 & a_4 \end{bmatrix}\begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} a_2 \\ a_4 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$$ thus $a_2 = 1, a_4 = 0$ so $A = \begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix}$
+\end{solution}
+
+
+
 
 
 

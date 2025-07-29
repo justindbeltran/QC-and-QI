@@ -207,6 +207,34 @@ Again for brevity, this was shortened well below 2000 words:\\
 
 
 
+\subsection{Exercise} Verify that $(\cdot, \cdot)$ just defined is an inner product on $\C^n$.
+
+\begin{solution}
+    Running the checklist for inner products find \begin{enumerate}[1)]
+        \item Linearity (in 2nd argument): $$(\ket{y}, \sum_i \lambda_i\ket{z_i}) = \sum_j y_j^*\sum_i \lambda_i z_{ij} = \sum_i \lambda_i\sum_j  y_j^* z_{ij} = \sum_i \lambda_i(\ket{y},\ket{z_i})$$
+
+        \item Conjugate Symmetry:
+        $$(\ket{y}, \ket{z}) = \sum_i y_i^*z_i = \sum_i z_iy_i^* = \sum_i (z_i^*y_i)^* = (\ket{z}, \ket{y})^*$$
+
+        \item Positive Definiteness: $$(\ket{y}, \ket{y}) = \sum_i y_i^*y_i =\sum_i |y_i|^2 $$ which is non-negative and note that $\sum|y_i|^2 = 0 \iff \forall i,  y_i = 0$
+    \end{enumerate}
+    Thus $(\cdot, \cdot)$ as defined is an inner product on $\C^n$.
+\end{solution}
+
+
+
+
+\subsection{Exercise} Show that any inner product $(\cdot, \cdot)$ is conjugate-linear in the first argument,
+
+$$\bigg( \sum_i \lambda_i\ket{w_i},\ket{v}\bigg) = \sum_i \lambda_i^*\big(\ket{w_i}, \ket{v}\big)$$
+
+\begin{solution}
+    Using the conjugate symmetry property of the  inner product then linearity then conjugate symmetry again  find:
+    $$ \bigg( \sum_i \lambda_i\ket{w_i},\ket{v}\bigg)  =  \bigg(\ket{v}, \sum_i \lambda_i\ket{w_i}\bigg)^*  = \sum_i \lambda_i^*\big(\ket{v}, \ket{w_i}\big)^*  = \sum_i \lambda_i^*\big(\ket{w_i}, \ket{v}\big)$$
+\end{solution}
+
+
+
 
 
 

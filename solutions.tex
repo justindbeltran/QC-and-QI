@@ -237,6 +237,31 @@ $$\bigg( \sum_i \lambda_i\ket{w_i},\ket{v}\bigg) = \sum_i \lambda_i^*\big(\ket{w
 
 
 
+\subsection{Exercise} Verify that $\ket{w}\equiv(1,1)$ and $\ket{v}\equiv (1,-1)$ are orthogonal. What are the normalized forms of these vectors?
+
+\begin{solution}
+    To verify compute the inner product $$\braket{w}{v}  = \begin{bmatrix} 1 & 1 \end{bmatrix} 
+    \begin{bmatrix}  1 \\ -1 \end{bmatrix} = 1 - 1 = 0$$ so the vectors are orthogonal and to normalize take $\frac{\ket{w}}{\norm{\ket{w}}} $ where  $\norm{\ket{w}} = \sqrt{\braket{w}} = \sqrt{2}$ then $\frac{\ket{w}}{\norm{\ket{w}}} = \frac{1}{\sqrt{2}}(1,1)$ and $\norm{\ket{v}} = \sqrt{\braket{v}} = \sqrt{2}$ so $\frac{\ket{v}}{\norm{\ket{v}}} = \frac{1}{\sqrt{2}}(1,-1)$ thus $\frac{1}{\sqrt{2}}(1,1), \quad \frac{1}{\sqrt{2}}(1,-1)$ are the normalized forms of $\ket{w}$ and $\ket{v}$ respectively.
+\end{solution}
+
+
+
+
+\subsection{Exercise} Prove that the Gram-Schmidt procedure produces an orthonormal basis for $V$. 
+
+\begin{solution}
+Starting with $\ket{w_1},...,\ket{w_d}$ as a basis for vector space $V$  consider for $1\leq k \leq d - 1$ a subspace $V_k =$ Span$\{\ket{w_1},...,\ket{w_k}\}$.
+
+Now to construct an orthogonal basis set $\ket{u_1} = \ket{w_1}$ so Span$\{\ket{u_1}\}=$ Span$\{\ket{w_1}\}$ continuing inductively for some $k < d-1$ an orthogonal basis has been constructed by $\ket{u_1},...,\ket{u_k}$ by defining $\ket{u_{k+1}} = \ket{w_{k+1}}-\sum^k_{i=1}\braket{u_i}{w_{k+1}}\ket{u_i}$ for $V_k$ by removing each non-orthogonal component of all previous vectors already in the orthogonal basis, i.e. by the Orthogonal Decomposition Theorem $\ket{u_{k+1}}$ is orthogonal to $V_k$ and $\ket{w_{k+1}} \in V_{k+1} $ then since $V_{k+1}$ is closed under subtraction $\implies \ket{u_{k+1}} \in V_{k+1}$. 
+
+Note that $\ket{u_{k+1}} \neq 0$ since $\ket{w_{k+1}} \notin V_k$ so $\ket{u_1},...,\ket{u_k+1}$ is an orthogonal set of vectors forming a basis for $V_{k+1}$. Halt the procedure when $V_k \equiv V$.
+
+To make the set orthonormal set $\ket{v_1} = \ket{u_1}/\norm{\ket{u_1}}$ and normalize each vector $\ket{v_{k+1}} = \ket{u_{k+1}}/\norm{\ket{u_{k+1}}}$ which finishes the proof for Gram-Schmidt producing an orthonormal basis for $V$. By putting it all together results in 2.17 as  $$
+\ket{v_{k+1}} \equiv \frac{\ket{w_{k+1}} - \sum^k_{i=1}\braket{v_i}{w_{k+1}}\ket{v_i}}{\norm{\ket{w_{k+1}} - \sum^k_{i=1}\braket{v_i}{w_{k+1}}\ket{v_i}}}$$ 
+\end{solution}
+
+
+
 
 
 

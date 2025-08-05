@@ -264,6 +264,41 @@ To make the set orthonormal set $\ket{v_1} = \ket{u_1}/\norm{\ket{u_1}}$ and nor
 
 
 
+\subsection{Exercise} 
+\textbf{(Pauli operators and the outer product)} The Pauli matrices can be considered as operators with respect to an orthonormal basis $\ket{0}, \ket{1}$ for a two-dimensional Hilbert space. Express each of the Pauli operators in the outer product notation.
+
+\begin{solution}
+    $$\sigma_0 \equiv I \equiv 
+    \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \equiv 
+    \ket{0}\bra{0} + \ket{1}\bra{1}, \quad
+    \sigma_1 \equiv X \equiv 
+    \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \equiv 
+    \ket{0}\bra{1} + \ket{1}\bra{0}
+    $$ 
+    $$
+    \sigma_2 \equiv Y \equiv 
+    \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \equiv 
+    i\ket{0}\bra{1} -i\ket{1}\bra{0}, \quad
+    \sigma_3 \equiv Z \equiv 
+    \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \equiv 
+    \ket{0}\bra{0} - \ket{1}\bra{1}
+    $$
+    which completes the 4 Pauli matrices listed in 2.2.
+\end{solution}
+
+
+
+
+\subsection{Exercise} Suppose $\ket{v_i}$ is an orthonormal basis for an inner product space $V$. What is the matrix representation for the operator $\ket{v_j}\bra{v_k}$, with respect to the $\ket{v_i}$ basis?
+
+\begin{solution}
+    Applying the operator to the orthonormal basis find $\ket{v_j}\braket{v_k}{v_i}$ which equals 0 where $k \neq i$ and equals $\ket{v_j}$ where $k = i$ thus $\ket{v_j}\bra{v_k}$ is all zeroes except in row  $j$ and column $k$.
+\end{solution}
+
+
+
+
+
 
 
 

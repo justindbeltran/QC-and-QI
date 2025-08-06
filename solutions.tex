@@ -298,6 +298,49 @@ To make the set orthonormal set $\ket{v_1} = \ket{u_1}/\norm{\ket{u_1}}$ and nor
 
 
 
+\subsection{Exercise} \textbf{(Eigendecomposition of the Pauli matrices)} Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli matrices $X$, $Y$, and $Z$.
+
+\begin{solution}
+    For $X$'s eigenvalues and eigenvectors find:
+    $$\det(X-I\lambda) = \lambda^2 -1 = 0 \implies \lambda = \pm 1, 
+    \quad (X - I)\ket{v} = \textbf{0} \implies \ket{v_1} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, 
+    (X+I)\ket{v} = \textbf{0} \implies \ket{v_2} = \begin{bmatrix} 1 \\ -1 \end{bmatrix}$$
+    then the orthonormal set of eigenvectors is $\ket{v_1} \mapsto \ket{+} = \frac{1}{\sqrt{2}}\ket{v_1}$ and $\ket{v_2} \mapsto \ket{-}=\frac{1}{\sqrt{2}}\ket{v_2}$ so its diagonal representation is given by $X = \sum_i \lambda_i\ket{i}\bra{i} = (1)\ket{+}\bra{+} + (-1)\ket{-}\bra{-} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}
+    $ which is diagonal in the $\{\ket{+},\ket{-}\}$ basis.
+
+    For $Y$'s eigenvalues and eigenvectors find:
+    $$\det(Y-I\lambda) = \lambda^2 - 1 = 0 \implies \lambda = \pm 1, \quad 
+    (Y - I)\ket{v} = \textbf{0} \implies \ket{v_1} = \begin{bmatrix} 1 \\ i \end{bmatrix}, 
+    (Y+I)\ket{v} = \textbf{0} \implies \ket{v_2} = \begin{bmatrix} 1 \\ -i \end{bmatrix}
+    $$
+    again the orthonormal set of eigenvectors is $\ket{v_1} \mapsto \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ i \end{bmatrix}$ and $\ket{v_2} \mapsto \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}$ so its diagonal representation is given by $Y = \sum_i \lambda_i\ket{i}\bra{i} = (1)\ket{v_1}\bra{v_1} + (-1)\ket{v_2}\bra{v_2} = \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}
+    $.
+
+    For $Z$'s eigenvalues and eigenvectors find:
+    $$\det(Z-I\lambda) = \lambda^2 - 1 = 0 \implies \lambda = \pm 1, \quad 
+    (Z - I)\ket{v} = \textbf{0} \implies \ket{v_1} = \ket{0}, 
+    (Z+I)\ket{v} = \textbf{0} \implies \ket{v_2} = \ket{1}
+    $$
+    where $\ket{0}, \ket{1}$ are already orthonormal then its diagonal representation $Z = \sum_i \lambda_i\ket{i}\bra{i} = (1)\ket{0}\bra{0} + (-1)\ket{1}\bra{1} = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}
+    $.
+\end{solution}
+
+
+
+\subsection{Exercise} Prove that the matrix $\begin{bmatrix}
+    1 & 0 \\ 1 & 1
+\end{bmatrix}$ is not diagonalizable. 
+
+\begin{solution}
+    An operator is diagonalizable if and only if it has a diagonal representation $A = \sum_i \lambda_i\ket{i}\bra{i}$ where each $\ket{i}$ form an eigenbasis. Now proceeding to the eigenvalues and eigenvectors of the given matrix are 
+    $$\det\begin{bmatrix}
+        1-\lambda & 0 \\ 1 & 1-\lambda
+    \end{bmatrix} = (1-\lambda)^2= 0 \implies \lambda = 1 \text{ with eigenvector } \ket{1}$$ because the matrix only has one eigenvector a complete eigenbasis cannot be formed, for a $2\cross 2$ matrix two linear independent eigenvectors are needed. Thus the matrix is not diagonalizable. 
+\end{solution}
+
+
+
+
 
 
 

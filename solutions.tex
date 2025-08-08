@@ -341,6 +341,27 @@ To make the set orthonormal set $\ket{v_1} = \ket{u_1}/\norm{\ket{u_1}}$ and nor
 
 
 
+\subsection{Exercise} If $\ket{w}$ and $\ket{v}$ are any two vectors, show that $(\ket{w}\bra{v})^\dagger = \ket{v}\bra{w}$.
+
+\begin{solution}
+    Apply the rule $(AB)^\dagger = B^\dagger A^\dagger$ to the given outer product $(\ket{w}\bra{v})^\dagger= (\bra{v})^\dagger(\ket{w})^\dagger = \ket{v}\bra{w}$ which was to be shown. 
+\end{solution}
+
+
+
+\subsection{Exercise} \textbf{(Anti-linearity of the adjoint)} Show that the adjoint operation is anti-linear,
+$$
+\bigg(\sum_ia_i A_i\bigg)^\dagger = \sum_i a^*_i A^\dagger_i$$
+
+\begin{solution}
+    Let $A =\sum_ia_i A_i $ then it follows that $A^\dagger = \big(\sum_ia_i A_i\big)^\dagger$ now apply 2.32 to find
+    $$(A^\dagger\ket{v}, \ket{w}) = \big((\sum_ia_i A_i)^\dagger\ket{v}, \ket{w}\big)  = (\ket{v}, \sum_ia_i A_i\ket{w}) 
+    \quad\quad\quad $$ $$ \quad\quad\quad = \sum_ia_i(\ket{v}, A_i\ket{w}) = \sum_ia_i(A_i^\dagger \ket{v}, \ket{w})  = (\sum_ia_i^*A_i^\dagger \ket{v}, \ket{w}) $$ noting that the left side ("bra" side) takes the complex conjugate of $a_i$. This is because the inner product is linear in the second argument but anti-linear in the first.
+\end{solution}
+
+
+
+
 
 
 

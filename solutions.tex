@@ -362,6 +362,29 @@ $$
 
 
 
+\subsection{Exercise} Show that $(A^\dagger)^\dagger=A$.
+
+\begin{solution}
+    Apply 2.32 twice to find $(\ket{v}, (A^\dagger)^\dagger\ket{w}) = (A^\dagger\ket{v}, \ket{w}) = (\ket{v}, A\ket{w})$ thus $(A^\dagger)^\dagger=A$ because there exists a \textbf{unique} linear operator $A^\dagger$ on $V$. This uniqueness forces $(A^\dagger)^\dagger=A$.
+\end{solution}
+
+
+
+\subsection{Exercise} Show that any projector $P$ satisfies the equation $P^2 = P$
+
+\begin{solution}
+    By definition $P = \sum_{i=1}^k\ket{i}\bra{i}$ then $$P^2 = \sum_{i=1}^k\ket{i}\bra{i}\sum_{j=1}^k\ket{j}\bra{j}= \sum_{i=1}^k\sum_{j=1}^k\ket{i}\braket{i}{j}\bra{j} = 
+    \sum_{i=1}^k\sum_{j=1}^k\ket{i}\delta_{ij}\bra{j} = \sum_{i=1}^k\ket{i}\bra{i} = P$$
+
+    Noting that $\delta_{ij} = 0$ unless $i=j$.
+    
+\end{solution}
+
+
+
+
+
+
 
 
 

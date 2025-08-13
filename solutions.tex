@@ -382,6 +382,36 @@ $$
 
 
 
+\subsection{Exercise} Show that a normal matrix is Hermitian if and only if it has real eigenvalues.
+
+\begin{solution}
+
+    If a matrix $A$ is normal and Hermitian(self-adjoint) then $AA^\dagger = A^\dagger A$ and $A = A^\dagger$ since the operator is normal by the spectral decomposition theorem it can be written as $A = \sum_i \lambda_i\ket{i}\bra{i}$ and $A^\dagger= \sum_i \lambda_i^*\ket{i}\bra{i}$ but because $A$ is self-adjoint $$\sum_i \lambda_i\ket{i}\bra{i}= \sum_i \lambda_i^*\ket{i}\bra{i} \implies \lambda = \lambda^*$$
+    Then for $\lambda := a + bi \in \C$ the implication is $a + bi = a - bi \implies b = 0$ so the eigenvalues have no complex component thus they are real eigenvalues. $\square$
+
+    Converse:
+
+    If the matrix $A$ is normal and has real eigenvalues then by the spectral decomposition theorem it can be written as $A = \sum_i \lambda_i\ket{i}\bra{i}$ and with real eigenvalues $\lambda = \lambda^*$ so  $$A = \sum_i \lambda_i\ket{i}\bra{i} = \sum_i \lambda_i^*\ket{i}\bra{i} = A^\dagger$$
+    which implies $A$ is Hermitian. $\square$
+\end{solution}
+
+
+
+\subsection{Exercise} Show that all eigenvalues of a unitary matrix have modulus 1, that is, can be written in the form $e^{i\theta}$ for some real $\theta$.
+
+\begin{solution}
+    For a given unitary matrix $U$ write $U = \sum_i\lambda_i\ket{w_i}\bra{v_i}$ for two orthonormal bases $\ket{w_i},\ket{v_i}$. Using the property $UU^\dagger = I$ then combining the above gives $$
+    UU^\dagger = \bigg(\sum_i\lambda_i\ket{w_i}\bra{v_i}\bigg)\bigg(\sum_i\lambda_i\ket{w_i}\bra{v_i}\bigg)^\dagger = \sum_i\lambda_i\ket{w_i}\bra{v_i}\sum_i\lambda_i^*(\ket{w_i}\bra{v_i})^\dagger = \quad$$
+    $$\quad \sum_i\lambda_i\ket{w_i}\bra{v_i}\sum_i\lambda_i^*\ket{v_i}\bra{w_i}=\sum_i\sum_i\lambda_i\lambda_i^*\ket{w_i}\braket{v_i}\bra{w_i} = \sum_i|\lambda_i|^2\ket{w_i}\bra{w_i} = I$$
+
+    Noting that the second sum can be dropped because any time the indices of the two sums are different they produce 0. This also implies for each eigenvalue $|\lambda_i|^2 = 1 \implies |\lambda_i|=1$ so then it can be written as $\lambda_i\lambda^*_i  = e^{i\theta}e^{-i\theta}=e^0 = 1$ for some real $\theta$ because any complex number mod 1 can be written $e^{i\theta}$.
+\end{solution}
+
+
+
+
+
+
 
 
 

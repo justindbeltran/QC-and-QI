@@ -410,6 +410,31 @@ $$
 
 
 
+\subsection{Exercise} \textbf{(Pauli matrices: Hermitian and unitary)} Show that the Pauli matrices are Hermitian and unitary. 
+
+\begin{solution}
+For matrices $I,X,Y$, and $Z$ find the following 
+    $$II^\dagger = \begin{bmatrix}1 & 0 \\ 0 & 1 \end{bmatrix}\begin{bmatrix}1 & 0 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix}1 & 0 \\ 0 & 1 \end{bmatrix} = I, \quad 
+    XX^\dagger = \begin{bmatrix}0 & 1 \\ 1 & 0 \end{bmatrix}\begin{bmatrix}0 & 1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix}1 & 0 \\ 0 & 1 \end{bmatrix} = I$$
+    $$
+    YY^\dagger = \begin{bmatrix}0 & -i \\ i & 0 \end{bmatrix}\begin{bmatrix}0 & -i \\ i & 0 \end{bmatrix}=\begin{bmatrix}1 & 0 \\ 0 & 1 \end{bmatrix}=I, \quad 
+    ZZ^\dagger = \begin{bmatrix}1 & 0 \\ 0 & -1 \end{bmatrix}\begin{bmatrix}1 & 0 \\ 0 & -1 \end{bmatrix} = \begin{bmatrix}1 & 0 \\ 0 & 1 \end{bmatrix} = I$$
+
+    Note that in all cases each matrix equals its adjoint (transpose then conjugate) and they all satisfy the unitary requirement.
+\end{solution}
+
+
+
+\subsection{Exercise} \textbf{(Basis changes)} 
+Suppose $A^\prime$ and $A^{\prime\prime}$ are matrix representations of an operator $A$ on a vector space $V$ with respect to two different orthonormal bases, $\ket{v_i}$ and $\ket{w_i}$. Then the elements of $A^\prime$ and $A^{\prime\prime}$ are $A^\prime_{ij} = \bra{v_i}A\ket{v_j}$ and $A^{\prime\prime}_{ij} = \bra{w_i}A\ket{w_j}$. Characterize the relationship between $A^\prime$ and $A^{\prime\prime}$.
+
+\begin{solution}
+    Since $U$ is defined as the outer product between two orthonormal bases sets $U \equiv \sum_i\ket{w_i}\bra{v_i} $ $\implies U_{ij} = \braket{v_i}{w_j}$ (Note this is by choice as $U\equiv \sum_i\ket{v_i}\bra{w_i}$ is valid as long as the choice is consistent) then using this  $$
+     A^\prime_{ij} = \bra{v_i}A\ket{v_j} = \bra{v_i}IAI\ket{v_j} = \bra{v_i}\sum_k\ket{w_k}\bra{w_k}A\sum_l\ket{w_l}\bra{w_l}\ket{v_j} = \sum_k\sum_l\bra{v_i}\ket{w_k}\bra{w_k}A\ket{w_l}\bra{w_l}\ket{v_j}$$
+     $$
+     = \sum_k\sum_l\bra{v_i}\ket{w_k}A^{\prime\prime}_{kl}\bra{w_l}\ket{v_j}= \sum_k\sum_lU_{ik}A^{\prime\prime}_{kl}\bra{v_j}\ket{w_l}^\dagger = \sum_k\sum_lU_{ik}A^{\prime\prime}_{kl}U_{jl}^\dagger$$
+     More succinctly this can be written as $A^\prime = UA^{\prime\prime} U^\dagger$ which characterizes the matrix representations relationship. 
+\end{solution}
 
 
 

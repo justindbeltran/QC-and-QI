@@ -439,6 +439,40 @@ Suppose $A^\prime$ and $A^{\prime\prime}$ are matrix representations of an opera
 
 
 
+\subsection{Exercise} Repeat the proof of the spectral decomposition in Box 2.2 for the case when $M$ is Hermitian, simplifying the proof wherever possible. 
+
+
+\begin{solution}
+
+    \textbf{Spectral Decomposition} - \textit{Any normal operator $M$ on a vector space $V$ is diagonal with respect to some orthonormal basis for $V$. Conversely, any diagonalizable operator is normal.}
+
+    In this case $M$ is Hermitian so $M = M^\dagger$. 
+
+    For $d= 1$, $M$ is obviously diagonal. Let $\lambda$ be an eigenvalue of $M$, $P$ a projector onto the $\lambda$ eigenspace, and $Q$ the projector onto the orthogonal complement. Expanding $$M = IMI = (P+Q)M(P+Q) = (PM +QM)(P+Q)=PMP + QMP + PMQ + QMQ$$
+    Where $QMP = PMQ = 0$, $\quad PMP = \lambda P$, and $QMQ$ is Hermitian then $QMQQM^\dagger Q=QM^\dagger QQM Q$ since $M = M^\dagger$ which gives
+    $$M = \lambda P  +QMQ$$
+
+    Then since $QMQ$ is diagonal with respect to an orthonormal basis for subspace $Q$ and $\lambda P$ is already diagonal then the sum is diagonal with respect to some orthonormal basis for $V$. Thus $M$ can be written as $\sum_i \lambda_i \ket{i}\bra{i}$ which was to be shown. $\square$
+
+    For the converse, since $M$ is Hermitian it is normal. 
+\end{solution}
+
+
+
+\subsection{Exercise} Prove that two eigenvectors of a Hermitian operator with different eigenvalues are necessarily orthogonal.
+
+\begin{solution}
+    Let $\ket{v_1}$ and $\ket{v_2}$ be two eigenvectors of a Hermitian operator $M$ corresponding to different eigenvalues then by definition
+    $$
+    M\ket{v_1} = \lambda_1\ket{v_1} \quad \text{ and } \quad M\ket{v_2} = \lambda_2\ket{v_2}$$
+    since $M$ is Hermitian by the spectral decomposition theorem $M = \sum_i \lambda_i \ket{i}\bra{i}$ then for two different eigenvalues $\lambda_1$ and $\lambda_2$, $\ket{i}\bra{i}\ket{v_1} = \ket{v_1} \iff \ket{i}=\ket{v_1}$ since eigenvectors only live in one projectors range thus for two different eigenvalues $$\bra{v_1}\ket{i}\bra{i}\ket{j}\bra{j}\ket{v_2}= 0 \iff i \neq j$$ so $\ket{v_1}$ and $\ket{v_2}$ must be orthogonal. $\square$
+    
+\end{solution}
+
+
+
+
+
 
 
 

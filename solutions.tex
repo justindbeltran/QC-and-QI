@@ -472,6 +472,28 @@ Suppose $A^\prime$ and $A^{\prime\prime}$ are matrix representations of an opera
 
 
 
+\subsection{Exercise} Show that the eigenvalues of a projector $P$ are all either 0 or 1.
+
+\begin{solution}
+    First note that for a diagonal matrix the eigenvalues are just the entries along the diagonal of the matrix. Since $P \equiv \sum^k_{i=1} \ket{i}\bra{i}$ it is already diagonal and is essentially $I$ in a $k$-dimensional subspace. Denoting the full vector space as $d$-dimension, then $P$'s characteristic polynomial is  $\det(P - \lambda I ) = (1-\lambda)^k(-\lambda^{d-k}) = 0 $ thus $\lambda =$ 0 or 1. 
+\end{solution}
+
+
+
+\subsection{Exercise} \textbf{(Hermiticity of positive operators)} Show that a positive operator is necessarily Hermitian. (\textit{Hint:} Show that an arbitrary operator $A$ can be written $A=B+iC$ where $B$ and $C$ are Hermitian.)
+
+\begin{solution}
+    A positive operator $A$ is defined that for any vector $\ket{v}$, $\quad \bra{v}A\ket{v} \in \R_{\geq0}$. Following the hint split $A$, into $A = A/2 + A/2$ and add 0 to get $$A = \frac{A}{2} + \frac{A}{2} + \frac{A^\dagger}{2} - \frac{A^\dagger}{2} = \frac{A}{2} + \frac{A^\dagger}{2} + \frac{i}{i}\bigg(\frac{A}{2} - \frac{A^\dagger}{2}\bigg) \implies \quad B = \frac{A+A^\dagger}{2}, \quad C = \frac{A-A^\dagger}{2i}$$
+    So $A = B + iC$ then using the linearity in the second argument of the inner product gives $$\bra{v}A\ket{v} = \bra{v}B + iC\ket{v} = \bra{v}B\ket{v} + \bra{v}iC\ket{v} \implies \quad C = \textbf{0}$$ with the implication coming from the fact that the result of the inner product is real. Now checking if $B$ is Hermitian to find
+    $$
+    B^\dagger = \bigg(\frac{A+A^\dagger}{2}\bigg)^\dagger = \frac{A^\dagger+A}{2}= \frac{A+A^\dagger}{2} = B$$ thus $B$ is Hermitian and $A = B $ therefore $A$ is Hermitian. $\square$
+    
+\end{solution}
+
+
+
+
+
 
 
 

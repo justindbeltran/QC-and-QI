@@ -1,4 +1,5 @@
 \documentclass[12pt]{exam}
+
 \usepackage[
   letterpaper,
   margin=0.3in,
@@ -11,6 +12,7 @@
 \usepackage{physics}
 \usepackage{amsfonts}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
 \usepackage{pgfplots} % For sketching graphs
 \pgfplotsset{compat=1.18}
 
@@ -64,6 +66,7 @@
 \usepackage{parskip}
 
 
+
 \title{%
   \centering
   Quantum Computation and Quantum Information\\
@@ -78,14 +81,16 @@
 \begin{document}
 
 \maketitle
+
+
 \firstpagefooter{}{}{By Justin Beltran}
 \runningfooter{}{}{By Justin Beltran}
 \printanswers
 
+\newpage
 
 
 \section{Chapter}
-
 \subsection{Exercise}
 \textbf{(Probabilistic classical algorithm)} Suppose that the problem is not to distinguish between the constant and balanced functions \textit{with certainty}, but rather, with some probability of error $\epsilon < 1/2$. What is the performance of the best classical algorithm for this problem?
 
@@ -157,9 +162,6 @@ Again for brevity, this was shortened well below 2000 words:\\
 \end{solution}
 
 
-
-
-
 \vspace{12pt}
 \section{Chapter}
 
@@ -207,6 +209,7 @@ Again for brevity, this was shortened well below 2000 words:\\
 
 
 
+
 \subsection{Exercise} Verify that $(\cdot, \cdot)$ just defined is an inner product on $\C^n$.
 
 \begin{solution}
@@ -236,7 +239,6 @@ $$\bigg( \sum_i \lambda_i\ket{w_i},\ket{v}\bigg) = \sum_i \lambda_i^*\big(\ket{w
 
 
 
-
 \subsection{Exercise} Verify that $\ket{w}\equiv(1,1)$ and $\ket{v}\equiv (1,-1)$ are orthogonal. What are the normalized forms of these vectors?
 
 \begin{solution}
@@ -259,7 +261,6 @@ Note that $\ket{u_{k+1}} \neq 0$ since $\ket{w_{k+1}} \notin V_k$ so $\ket{u_1},
 To make the set orthonormal set $\ket{v_1} = \ket{u_1}/\norm{\ket{u_1}}$ and normalize each vector $\ket{v_{k+1}} = \ket{u_{k+1}}/\norm{\ket{u_{k+1}}}$ which finishes the proof for Gram-Schmidt producing an orthonormal basis for $V$. By putting it all together results in 2.17 as  $$
 \ket{v_{k+1}} \equiv \frac{\ket{w_{k+1}} - \sum^k_{i=1}\braket{v_i}{w_{k+1}}\ket{v_i}}{\norm{\ket{w_{k+1}} - \sum^k_{i=1}\braket{v_i}{w_{k+1}}\ket{v_i}}}$$ 
 \end{solution}
-
 
 
 
@@ -340,7 +341,6 @@ To make the set orthonormal set $\ket{v_1} = \ket{u_1}/\norm{\ket{u_1}}$ and nor
 
 
 
-
 \subsection{Exercise} If $\ket{w}$ and $\ket{v}$ are any two vectors, show that $(\ket{w}\bra{v})^\dagger = \ket{v}\bra{w}$.
 
 \begin{solution}
@@ -358,7 +358,6 @@ $$
     $$(A^\dagger\ket{v}, \ket{w}) = \big((\sum_ia_i A_i)^\dagger\ket{v}, \ket{w}\big)  = (\ket{v}, \sum_ia_i A_i\ket{w}) 
     \quad\quad\quad $$ $$ \quad\quad\quad = \sum_ia_i(\ket{v}, A_i\ket{w}) = \sum_ia_i(A_i^\dagger \ket{v}, \ket{w})  = (\sum_ia_i^*A_i^\dagger \ket{v}, \ket{w}) $$ noting that the left side ("bra" side) takes the complex conjugate of $a_i$. This is because the inner product is linear in the second argument but anti-linear in the first.
 \end{solution}
-
 
 
 
@@ -438,7 +437,6 @@ Suppose $A^\prime$ and $A^{\prime\prime}$ are matrix representations of an opera
 
 
 
-
 \subsection{Exercise} Repeat the proof of the spectral decomposition in Box 2.2 for the case when $M$ is Hermitian, simplifying the proof wherever possible. 
 
 
@@ -493,7 +491,125 @@ Suppose $A^\prime$ and $A^{\prime\prime}$ are matrix representations of an opera
 
 
 
+\subsection{Exercise} Show that for any operator $A, \quad A^\dagger A $ is positive.
 
+\begin{solution}
+    Consider the following 
+    $$\bra{v} A^\dagger A \ket{v}= \braket{Av}{Av}  = \norm{A\ket{v}}^2 \geq 0$$
+    where the squared norm is always real and non-negative.
+\end{solution}
+
+
+
+\subsection{Exercise} Let $\ket{\psi}= (\ket{0}+\ket{1})/\sqrt{2}$. Write out $\ket{\psi}^{\otimes2}$ and $\ket{\psi}^{\otimes3}$ explicitly, both in terms of tensor products like $\ket{0}\ket{1}$, and using the Kronecker product. 
+
+\begin{solution}
+    $$\ket{\psi}^{\otimes2} = \frac{(\ket{0}+\ket{1})}{\sqrt{2}}\otimes \frac{(\ket{0}+\ket{1})}{\sqrt{2}} = \frac{1}{2}\big[ (\ket{0}+\ket{1})\ket{0} + (\ket{0}+\ket{1})\ket{1}  \big]= \frac{1}{2}\big[ \ket{0}\ket{0}+\ket{1}\ket{0} + \ket{0}\ket{1}+\ket{1}\ket{1}  \big]$$
+
+    Continuing to $\ket{\psi}^{\otimes 3}$ as $\ket{\psi}^{\otimes2}\ket{\psi} $ find
+    $$
+    \ket{\psi}^{\otimes 3} = \frac{1}{2}\big[ \ket{0}\ket{0}+\ket{1}\ket{0} + \ket{0}\ket{1}+\ket{1}\ket{1}  \big]\otimes\frac{(\ket{0}+\ket{1})}{\sqrt{2}} 
+    = \frac{1}{\sqrt{8}}\big[\ket{0}\ket{0}\ket{0} + \ket{0}\ket{0}\ket{1} + \ket{0}\ket{1}\ket{0} + ... + \ket{1}\ket{1}\ket{1}]
+    $$
+    Where counting in binary fills in the ellipsis (the "...") above. Onto the Kronecker product 
+    $$\ket{\psi}^{\otimes2} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 1 \end{bmatrix} \otimes 
+     \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 1 \end{bmatrix} = \frac{1}{2}\begin{bmatrix}
+         1 \\ 1 \\ 1 \\ 1
+     \end{bmatrix}, \quad  \ket{\psi}^{\otimes 3} = \frac{1}{2}\begin{bmatrix}
+         1 \\ 1 \\ 1 \\ 1
+     \end{bmatrix} \otimes \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 1 \end{bmatrix} = \frac{1}{\sqrt{8}} \begin{bmatrix}
+         1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1
+     \end{bmatrix}
+    $$
+\end{solution}
+
+
+
+
+\subsection{Exercise} Calculate the matrix representation of the Pauli operators (a) $X$ and $Z$; (b) $I$ and $X$; (c) $X$ and $I$. Is the tensor product commutative?
+
+\begin{solution}
+    Recall $$I = \begin{bmatrix} 1 & 0 \\ 0&1  \end{bmatrix}, \quad X = \begin{bmatrix} 0&1 \\ 1 &0\end{bmatrix}, \quad Z = \begin{bmatrix} 1&0 \\ 0&-1 \end{bmatrix}   $$ then the following are their tensor products 
+    \begin{enumerate}
+        \item $$X \otimes Z = \begin{bmatrix} \textbf{0} & Z \\ Z & \textbf{0} \end{bmatrix} = \begin{bmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1  \\ 1 & 0 & 0 & 0 \\0 & -1 & 0 & 0 \end{bmatrix} $$
+        \item $$I \otimes X = \begin{bmatrix} X & \textbf{0}  \\  \textbf{0} & X\end{bmatrix} = \begin{bmatrix} 0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0  \\ 0 & 0 & 0 & 1 \\0 & 0 & 1 & 0 \end{bmatrix} $$
+        \item $$X \otimes I = \begin{bmatrix} \textbf{0} & I \\ I & \textbf{0} \end{bmatrix} = \begin{bmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1  \\ 1 & 0 & 0 & 0 \\0 & 1 & 0 & 0 \end{bmatrix} $$
+    \end{enumerate}
+
+    Note that case (b) and case (c), $X\otimes I \neq I \otimes X$ do not match which provides an example that the tensor product is not commutative. 
+\end{solution}
+
+
+
+\subsection{Exercise} Show that the transpose, complex conjugation, and adjoint operations distribute over the tensor product, $$
+(A \otimes B)^*= A^* \otimes B^*; \quad
+(A\otimes B)^T = A^T\otimes B^T; \quad
+(A \otimes B)^\dagger = A^\dagger \otimes B^\dagger$$
+
+\begin{solution}
+    Expanding out into the matrix form find 
+    $$
+    (A\otimes B)^*  = \begin{bmatrix}
+        a_{11}B & \cdots & a_{1n}B \\
+        \vdots &  \ddots & \vdots  \\
+        a_{m1}B & \cdots  & a_{mn}B
+    \end{bmatrix}^* 
+    = \begin{bmatrix}
+        (a_{11}B)^* & \cdots & (a_{1n}B)^* \\
+        \vdots &  \ddots & \vdots  \\
+        (a_{m1}B)^* & \cdots  & (a_{mn}B)^*
+    \end{bmatrix} 
+    = \begin{bmatrix}
+        a_{11}^*B^* & \cdots & a_{1n}^*B^* \\
+        \vdots &  \ddots & \vdots  \\
+        a_{m1}^*B^* & \cdots  & a_{mn}^*B^*
+    \end{bmatrix} =  A^* \otimes B^*$$
+
+    $$(A\otimes B)^T 
+    = \begin{bmatrix}
+        a_{11}b_{11} & \cdots & a_{1n}b_{1q} \\
+        \vdots &  \ddots & \vdots  \\
+        a_{m1}b_{p1} & \cdots  & a_{mn}b_{pq}
+    \end{bmatrix}^T 
+    = \begin{bmatrix}
+        a_{11}b_{11} & \cdots &  a_{m1}b_{p1}\\
+        \vdots &  \ddots & \vdots  \\
+        a_{1n}b_{1q} & \cdots  & a_{mn}b_{pq}
+    \end{bmatrix}
+    = \begin{bmatrix}
+        a_{11}B^T & \cdots &  a_{m1}B^T\\
+        \vdots &  \ddots & \vdots  \\
+        a_{1n}B^T & \cdots  & a_{mn}B^T
+    \end{bmatrix} =  A^T \otimes B^T$$
+
+    Combine the above two distributive properties to find the adjoint operation distributes: 
+
+    $\quad (A \otimes B)^\dagger = [(A \otimes B)^T]^*
+    = [A^T \otimes B^T]^* = A^{T*} \otimes B^{T*}
+    = A^\dagger \otimes B^\dagger$
+\end{solution}
+
+
+
+\subsection{Exercise} Show the tensor product of two unitary operators is unitary.
+
+\begin{solution}
+    Let matrices $U_{m\cross m}$ and $W_{n\cross n}$ be \textit{unitary} then $UU^\dagger = I$ and $WW^\dagger=I$. Their tensor product $(U \otimes W)$ is unitary if $(U \otimes W)(U \otimes W)^\dagger = I_{mn\cross mn}$ with the identity matrix being the larger size so using 2.28 and equation (2.45) find
+    $$(U \otimes W)(U \otimes W)^\dagger=(U \otimes W)(U^\dagger \otimes W^\dagger)=UU^\dagger \otimes WW^\dagger= I_{m\cross m}\otimes I_{n\cross n}= I_{mn\cross mn}$$
+
+    which was to be shown. $\square$
+\end{solution}
+
+
+
+\subsection{Exercise} Show that the tensor product of two Hermitian operators is Hermitian. 
+
+\begin{solution}
+     Let matrices $A_{m\cross m}$ and $B_{n\cross n}$ be \textit{Hermitian} then $A = A^\dagger$ and $B = B^\dagger$. Their tensor product $(A \otimes B)$ is Hermitian if $(A \otimes B) = (A \otimes B)^\dagger$ so using 2.28 find 
+     $$
+     (A \otimes B) = (A^\dagger \otimes B^\dagger) = (A \otimes B)^\dagger$$
+     which was to be shown. $\square$
+\end{solution}
 
 
 

@@ -613,6 +613,28 @@ Suppose $A^\prime$ and $A^{\prime\prime}$ are matrix representations of an opera
 
 
 
+\subsection{Exercise} Show that the tensor product of two positive operators is positive.
+
+\begin{solution}
+    Let matrices $A$ and $B$ be two positive operators on $V$ and $W$ respectively, then for $\ket{v} \in V$, $\bra{v}A\ket{v}\geq 0$ and for $\ket{w} \in W$, $\bra{w}B\ket{w}\geq 0$. Their tensor product is positive if $(A \otimes B )$ has $\bra{v}A\ket{v}\bra{w}B\ket{w} \geq 0$ so by equation (2.49)
+    $$
+    \bigg(\ket{v}\otimes\ket{w}, (A \otimes B )(\ket{v}\otimes\ket{w})\bigg)= \bigg(\ket{v}\otimes\ket{w}, A\ket{v}\otimes B\ket{w}\bigg) = \bra{v}A\ket{v}\bra{w}B\ket{w} \geq 0$$ since both $\bra{v}A\ket{v}$ and $\bra{w}B\ket{w}$ are greater or equal to zero so is there product which was to be shown. $\square$
+\end{solution}
+
+
+
+
+\subsection{Exercise} Show that the tensor product of two projectors is a projector.
+
+\begin{solution}
+    Let projectors $P$ and $R$ be projectors on $W_k \subset V_m$ and $U_l \subset Y_n$ respectively, with the dimensional size in the subscripts.  $P \otimes R$ is a projector on $W \otimes U$ if $P \otimes R \equiv \sum_i^{kl}\ket{i}\bra{i}$ so 
+    $$
+    P \otimes R = \sum_i^k\ket{i}\bra{i}\otimes\sum_j^l\ket{j}\bra{j }=\sum_i^k\sum_j^l\ket{i\otimes j}\bra{i\otimes j} = \sum_i^{kl}\ket{i}\bra{i}$$
+    since for all $i \neq j$ the matrix entry is 0. Thus the tensor product of two projectors is a projector which was to be shown. 
+\end{solution}
+
+
+
 
 
 

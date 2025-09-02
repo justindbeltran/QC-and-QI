@@ -636,6 +636,109 @@ Suppose $A^\prime$ and $A^{\prime\prime}$ are matrix representations of an opera
 
 
 
+\subsection{Exercise} The Hadamard operator on one qubit may be written as $$
+H = \frac{1}{\sqrt{2}} \big[(\ket{0}+ \ket{1})\bra{0} + (\ket{0}-\ket{1})\bra{1}\big]$$ 
+Show explicitly that the Hadamard transform on $n$ qubits, $H^{\otimes n}$ may be written as 
+$$
+H^{\otimes n} = \frac{1}{\sqrt{2^n}}\sum_{x,y}(-1)^{x\cdot y}\ket{x}\bra{y}$$
+Write out an explicit matrix representation for $H^{\otimes 2}$
+
+\begin{solution}
+    Writing $\ket{x}\otimes \ket{y}$ as $\ket{xy}$ and starting with $H^{\otimes 2}$ find $$
+    H\otimes H = \frac{1}{\sqrt{2}} \big[(\ket{0}+ \ket{1})\bra{0} + (\ket{0}-\ket{1})\bra{1}\big] \otimes \frac{1}{\sqrt{2}} \big[(\ket{0}+ \ket{1})\bra{0} + (\ket{0}-\ket{1})\bra{1}\big] \quad $$
+    $$= \frac{1}{\sqrt{4}}\bigg[ \big((\ket{0}+ \ket{1})\bra{0}\big)^{\otimes2} + (\ket{0}-\ket{1})\bra{1}\otimes(\ket{0}+ \ket{1})\bra{0} + (\ket{0}+\ket{1})\bra{0}\otimes(\ket{0}- \ket{1})\bra{1} + \big((\ket{0}-\ket{1})\bra{1}\big)^{\otimes2}\bigg]
+    $$ $$
+    = \frac{1}{\sqrt{4}}\bigg[ (\ket{00}+ \ket{10}+\ket{01} +\ket{11})\bra{00} +
+    (\ket{00}-\ket{10} +\ket{01}-\ket{11})\bra{10} +
+    \hspace{100pt} $$ $$ \hspace{100pt}
+    (\ket{00}+\ket{10} -\ket{01}-\ket{11})\bra{01} +
+    (\ket{00}-\ket{10} -\ket{01}+\ket{11})\bra{11} \bigg]$$
+    $$= \frac{1}{\sqrt{4}}\begin{bmatrix} 
+        1 & 1 & 1 & 1 \\ 
+        1 & -1 & 1 & -1  \\ 
+        1 & 1 & -1 & -1 \\
+        1 & -1 & -1 & 1 \end{bmatrix} = H^{\otimes 2} $$
+    \textbf{Proof for $H^{\otimes n}$ : }Now that that's out of the way, its time to show the general $H^{\otimes n}$ form is 
+    $
+    H^{\otimes n} = \frac{1}{\sqrt{2^n}}\sum_{x,y}(-1)^{x\cdot y}\ket{x}\bra{y}$ starting with the basic $n=1$ case which is straight forward 
+    $$
+    H^{\otimes 1} = \frac{1}{\sqrt{2}} \big[(\ket{0}+ \ket{1})\bra{0} + (\ket{0}-\ket{1})\bra{1}\big] = \frac{1}{\sqrt{2}} \sum_{y=0}^1(\ket{0}+ (-1)^y\ket{1})\bra{y}
+    =\frac{1}{\sqrt{2^1}} \sum_{y=0}^1\sum_{x=0}^1(-1)^{x\cdot y}\ket{x}\bra{y}$$
+    Now to consider the generalized $H^{\otimes n}$ holds for an arbitrary $n$ and noting that $H$ from above can be written as $$H = \frac{1}{\sqrt{2^1}} \sum_{y=0}^1\sum_{x=0}^1(-1)^{x\cdot y}\ket{x}\bra{y} = \frac{1}{\sqrt{2}} \sum_{x,y\in\{0,1\}}(-1)^{x\cdot y}\ket{x}\bra{y}$$
+    and expanding a general $H^{\otimes n}$ then factoring the $1/\sqrt{2}$ forward gives
+    $$
+    H^{\otimes n} = \frac{1}{\sqrt{2}} \sum_{x_1,y_1\in\{0,1\}}(-1)^{x_1\cdot y_1}\ket{x_1}\bra{y_1} \otimes ... \otimes \frac{1}{\sqrt{2}} \sum_{x_n,y_n\in\{0,1\}}(-1)^{x_n\cdot y_n}\ket{x_n}\bra{y_n} 
+    \quad $$ $$ \quad
+    = \frac{1}{\sqrt{2^n}} \bigg[\sum_{x_1,y_1\in\{0,1\}}(-1)^{x_1\cdot y_1}\ket{x_1}\bra{y_1} \otimes ... \otimes  \sum_{x_n,y_n\in\{0,1\}}(-1)^{x_n\cdot y_n}\ket{x_n}\bra{y_n}\bigg]
+    $$ $$ \quad\quad
+    = \frac{1}{\sqrt{2^n}} \bigg[\sum_{x_1,y_1\in\{0,1\}}...\sum_{x_n,y_n\in\{0,1\}}(-1)^{x_1\cdot y_1}\ket{x_1}\bra{y_1} \otimes ... \otimes  (-1)^{x_n\cdot y_n}\ket{x_n}\bra{y_n}\bigg]
+    $$ 
+    after pushing all the sums forwards and factoring the $(-1)$ terms forward, we have (2.55) $$ 
+    = \frac{1}{\sqrt{2^n}} \bigg[\sum_{x_1,y_1\in\{0,1\}}...\sum_{x_n,y_n\in\{0,1\}}(-1)^{x_1\cdot y_1}...(-1)^{x_n\cdot y_n}\big(\ket{x_1}\bra{y_1} \otimes ... \otimes  \ket{x_n}\bra{y_n}\big)\bigg]
+    $$ $$
+    = \frac{1}{\sqrt{2^n}}\sum_{x,y\in\{0,1\}^n}(-1)^{x_1\cdot y_1+...+x_n\cdot y_n}\big(\ket{x_1...x_n}\bra{y_1...y_n} \big) =  \frac{1}{\sqrt{2^n}}\sum_{\textbf{x,y}}(-1)^{\textbf{x}\cdot\textbf{ y}}\ket{\textbf{x}}\bra{\textbf{y}}$$
+    which was to be shown. $\square$
+
+    It's important to note that the final sum is summing over all bit strings of length $n$ which is slightly obfuscated in the original problem.
+\end{solution}
+
+
+
+\subsection{Exercise} Find the square root and logarithm of the matrix $$\begin{bmatrix}
+    4 & 3 \\ 3 & 4
+\end{bmatrix}$$
+
+\begin{solution}
+    Let $M$ be the above matrix, to find the listed functions $M$ must be in its spectral decomposition form which is comprised of its eigenvalues with their corresponding eigenvectors computing 
+    $$\det (M-I\lambda) = (4-\lambda)^2 - 9 = \lambda^2 -8\lambda + 7 = (\lambda -7)(\lambda-1) = 0 \implies \quad
+    \lambda = 1, 7$$
+    and their corresponding eigenvectors are given by 
+    $$
+    \begin{bmatrix}
+    3 & 3 \\ 3 & 3
+    \end{bmatrix}\begin{bmatrix}
+        1 \\ -1
+    \end{bmatrix} = \textbf{0} 
+    \quad \text{ and } \quad 
+    \begin{bmatrix}
+    -3 & 3 \\ 3 & -3
+    \end{bmatrix}\begin{bmatrix}
+        1 \\ 1
+    \end{bmatrix} = \textbf{0} \implies  \quad \ket{v_1}=\frac{1}{\sqrt{2}}\begin{bmatrix}
+        1 \\ -1
+    \end{bmatrix}, \quad \ket{v_2}=\frac{1}{\sqrt{2}}\begin{bmatrix}
+        1 \\ 1
+    \end{bmatrix}
+    $$
+    Now to use $f(M) \equiv \sum_i f(\lambda_i) \ket{i}\bra{i}$ which assumes an orthonormal eigenbasis, hence why the eigenvectors were normalized.
+    
+    
+    \textbf{Square Root:} $f = \sqrt{m}$ so for matrix $M$ find 
+    $$
+    f(M) = \sum_{i=1}^2\sqrt{\lambda_i}\ket{i}\bra{i}=
+    1\ket{v_1}\bra{v_1} + \sqrt{7}\ket{v_2}\bra{v_2} = 
+    \frac{1}{2}\begin{bmatrix}
+        1 & -1 \\ -1 & 1
+    \end{bmatrix} + \frac{\sqrt{7}}{2}\begin{bmatrix}
+        1 & 1 \\ 1 & 1
+    \end{bmatrix} = \begin{bmatrix}
+        \frac{\sqrt{7} + 1}{2} & \frac{\sqrt{7} - 1}{2} \\
+        \frac{\sqrt{7} - 1}{2} & \frac{\sqrt{7} + 1}{2}
+    \end{bmatrix}$$
+
+    \textbf{Logarithm} Recall this book refers to base 2 logarithms unless otherwise noted so $f = \log_2(m)$ then 
+    $$
+    f(M) = \sum_{i=1}^2\log(\lambda_i)\ket{i}\bra{i}= \log(7)\ket{v_2}\bra{v_2}=\frac{\log(7)}{2}\begin{bmatrix}
+        1 & 1 \\ 1 & 1
+    \end{bmatrix}$$
+    Note that $\log(1) = 0$. That concludes the results of both functions.
+\end{solution}
+
+
+
+
+
+
 
 
 

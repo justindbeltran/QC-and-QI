@@ -737,6 +737,78 @@ Write out an explicit matrix representation for $H^{\otimes 2}$
 
 
 
+\subsection{Exercise} \textbf{(Exponential of the Pauli Matrices)} Let $\vec{v}$ be any real, three-dimensional unit vector and $\theta$ a real number. Prove that 
+$$\exp(i\theta \vec{v}\cdot \vec{\sigma}) = \cos(\theta)I + i\sin(\theta)\vec{v}\cdot\vec{\sigma}$$
+where $\vec{v}\cdot \vec{\sigma}\equiv \sum^3_{i=1} v_i\sigma_i$. This exercise is generalized in Problem 2.1 on page 117.
+
+\begin{solution}
+    Recall that $\sum^3_{i=1}\sigma_i = X+Y+Z$ and expand the sum $\sum^3_{i=1} v_i\sigma_i $ so the matrix is more clear 
+
+    $$
+    \sum^3_{i=1} v_i\sigma_i = v_1X + v_2Y +v_3Z = 
+    \begin{bmatrix}
+        0 & v_1 \\ v_1 & 0
+    \end{bmatrix} + \begin{bmatrix}
+        v_2 & 0 \\ 0 & -v_2 
+    \end{bmatrix} + \begin{bmatrix}
+        0 & -iv_3 \\ iv_3 & 0
+    \end{bmatrix} = \begin{bmatrix}
+        v_2 & v_1 -iv_3 \\ v_1 + iv_3 & - v_2
+    \end{bmatrix}$$
+    Now note that $\vec{v}$ is a real, 3D unit vector which $\implies \lambda = \pm 1$ also note that $\begin{bmatrix}
+        v_2 & v_1 -iv_3 \\ v_1 + iv_3 & - v_2
+    \end{bmatrix} = \begin{bmatrix}
+        v_2 & v_1 -iv_3 \\ v_1 + iv_3 & - v_2
+    \end{bmatrix}^\dagger$ so the matrix is Hermitian so it has a spectral decomposition but for fun lets find the corresponding eigenvectors  
+    $$
+    \begin{bmatrix}
+        v_2 - 1 & v_1 -iv_3 \\ v_1 + iv_3 & - v_2-1
+    \end{bmatrix} \begin{bmatrix}
+        1 + v_2 \\ v_1 + iv_3
+    \end{bmatrix}=\begin{bmatrix}
+        0 \\ 0
+    \end{bmatrix}, \quad \begin{bmatrix}
+        v_2 + 1 & v_1 -iv_3 \\ v_1 + iv_3 & - v_2+1
+    \end{bmatrix} \begin{bmatrix}
+        1 - v_2 \\ -v_1 - iv_3
+    \end{bmatrix}=\begin{bmatrix}
+        0 \\ 0
+    \end{bmatrix}
+    $$
+    which works again since $\vec{v}$ is a unit vector then normalizing each vector $\ket{e_1},\ket{e_2}$ with $1/\sqrt{2(1+v_2)}$ and $1/\sqrt{2(1-v_2)}$ respectively. When $v_2 = \pm1$ no normalization is needed factor is needed. 
+    
+    \begin{equation*}
+        \begin{split}
+         \exp(i\theta \vec{v} \cdot \vec{\sigma}) &= \exp(i\theta 1)\ket{e_1}\bra{e_1} +  \exp(i\theta (-1))\ket{e_2}\bra{e_2} \\
+         &= \big(\cos(\theta) + i\sin (\theta)\big)\ket{e_1}\bra{e_1} + \big(\cos(\theta) - i\sin (\theta)\big)\ket{e_2}\bra{e_2} \\
+         &= \cos(\theta)\big(\ket{e_1}\bra{e_1} + \ket{e_2}\bra{e_2}\big) + i\sin(\theta)\big(\ket{e_1}\bra{e_1} - \ket{e_2}\bra{e_2}\big) \\
+         &= \cos(\theta)I + i\sin(\theta)\vec{v}\cdot\vec{\sigma}
+        \end{split}
+        \end{equation*}
+        The last equivalence is given by the fact that the outer products of orthonormal eigenvectors are essentially projectors. Further they are orthogonal projectors on to the eigenspace thus their sum is the identity and their difference is the original matrix $\vec{v}\cdot\vec{\sigma}$ which completes the proof. $\square$
+        
+    
+\end{solution}
+
+
+
+\subsection{Exercise} Show that the Pauli matrices except for $I$ have trace zero.
+
+\begin{solution}
+    $$X = \begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix} \implies \quad \tr(X) = 0 + 0 = 0$$
+    $$Y = \begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix} \implies  \quad \tr(Y) = 0 + 0 = 0$$
+    $$Z = \begin{bmatrix}
+        1 & 0\\ 0 & -1
+    \end{bmatrix}\implies  \quad \tr(Z) = 1 -1 = 0$$
+\end{solution}
+
+
+
+
 
 
 

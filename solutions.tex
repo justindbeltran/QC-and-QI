@@ -810,6 +810,40 @@ where $\vec{v}\cdot \vec{\sigma}\equiv \sum^3_{i=1} v_i\sigma_i$. This exercise 
 
 
 
+\subsection{Exercise} \textbf{(Cyclic property of the trace)} If $A$ and $B$ are two linear operators show that $$
+\tr(AB) = \tr(BA)$$
+
+\begin{solution}
+    For $A_{m\cross n}$ and $B_{n\cross m}$ observe that
+    $$\tr(AB) = \sum_i (AB)_{ii} = \sum^m_i\sum^n_jA_{ij}B_{ji} = \sum^n_j\sum^m_iB_{ji}A_{ij}=\sum_i (BA)_{ii} = \tr(BA)$$
+
+    where for square matrices the cyclic property emerges as $\tr(A_1A_2A_3) = \tr(A_3A_1A_2)$
+\end{solution}
+
+
+
+
+\subsection{Exercise} \textbf{(Linearity of the trace)} If $A$ and $B$ are two linear operators, show that 
+$$\tr(A + B) = \tr(A) + \tr(B)$$ and if $z$ is an arbitrary complex number show that $$\tr(zA) = z\tr(A)$$
+
+\begin{solution}
+    If $A$ and $B$ are two linear operators then 
+    $$\tr(A + B) = \sum_i(A+ B)_{ii} = \sum_i (A_{ii} + B_{ii}) = \sum_i A_{ii} + \sum_i B_{ii}  = \tr(A) + \tr(B)$$
+    since during $A + B$ the diagonal entries are directly summed and the trace is a sum over those entries the order of operations doesn't matter.
+
+    If $z$ is an arbitrary complex number then 
+    $$\tr(zA) = \sum_i(zA)_{ii} = z\sum_iA_{ii} = z\tr(A)$$
+    which was to be shown.
+    
+\end{solution}
+
+
+
+
+
+
+
+
 
 
 

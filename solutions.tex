@@ -838,6 +838,118 @@ $$\tr(A + B) = \tr(A) + \tr(B)$$ and if $z$ is an arbitrary complex number show 
 \end{solution}
 
 
+\subsection{Exercise} \textbf{(The Hilbert-Schmidt inner product on operators)} The set $L_V$ of linear operators on a Hilbert space $V$ is obviously a vector space - the sum of two linear operators is a linear operator, $zA$ is a linear operator if $A$ is a linear operator and $z$ is a complex number, and there is zero element 0. An important additional result is that the vector space $L_V$ can be given a natural inner product structure, turning it into a Hilbert space.
+\begin{enumerate}[(1)]
+    \item Show that the function $(\cdot,\cdot)$ on $L_V\cross L_V$ defined by $(A,B) \equiv \tr(A^\dagger B)$ is an inner product function. This inner product is known as the \textit{Hilbert-Schmidt} or \textit{trace} inner product.
+    \item If $V$ has $d$ dimensions show that $L_V$ has dimensions $d^2$.
+    \item Find an orthonormal basis of Hermitian matrices for the Hilbert space $L_V$
+\end{enumerate}
+
+
+
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item Recall that for $(A,B) \equiv \tr(A^\dagger B)$ to be an inner product it must satisfy the following three properties: 
+        \begin{enumerate}
+            \item \textbf{Linearity in the second argument:} Recall from 2.38 that the trace is linear then  
+            $$
+            (A,\sum_i\lambda_i B_i) = \tr(A^\dagger \sum_i\lambda_i B_i) = \tr(\sum_i\lambda_i A^\dagger B_i)=\sum_i\lambda_i \tr(A B_i) = \sum_i\lambda_i (A^\dagger, B_i)
+            $$
+
+            \item \textbf{Conjugate symmetry:} Recall the cyclic property of the trace from 2.37 then 
+            $$
+            (A,B) = \tr (A^\dagger B) = \tr(BA^\dagger) = \tr\big( (B^\dagger A)^\dagger) = \tr (B^\dagger A)^\dagger = (B, A)^\dagger
+            $$
+
+            \item \textbf{Positive-definiteness:} Note that for $A$ with entries $A_{ij}$, $A^\dagger = A^{T*}$ has entries $A_{ji}^*$ then 
+            
+            $$
+            (A,A) = \tr(A^\dagger A ) = \tr(\sum_i^n\sum_j^n A_{ji}^* A_{ji} ) = \tr (\sum_i^n\sum_j^n |A_{ij}|^2) \geq 0$$ 
+            and the inner product only equals 0 when all entries $|A_{ij}|^2$ are 0.
+        \end{enumerate}
+
+        \item If $V$ has $d$ dimensions and $L_V: V \mapsto V$ then $L_V$ must be $d \cross d$ to preserve the input and output spaces. Thus $L_V$ has dimension $d^2$. As a side note $L_V$ must be square to use the trace operation in the first part of this problem so $d^2$ is only natural.
+
+        \item For $i,j \in \{\ket{1},...,\ket{d}\}$, let $E_{ij} = \ket{i}\bra{j}$ be a basis element of $L_V$. Now since $\dim L_V=d^2$ there are $d^2$ of these basis elements defined by $\{E_{ij}\},\forall i \forall j\in d$. Then entry $m,n\in E_{ij}$ is given by $\bra{m}E_{ij}\ket{n} = \braket{m}{i}\braket{j}{n} = \delta_{mi}\delta_{jn}$ and note $$(E_{ij},E_{lk})=\tr(E_{ij}^\dagger E_{lk})=\tr(E_{ji}^* E_{lk})=\delta_{jl}\delta_{ik}$$ which tells us that this basis is orthonormal. 
+
+        That was the easy part but the basis that was just constructed is \textbf{NOT} Hermitian. Recall a Hermitian matrix is self-adjoint (i.e $A^\dagger = A$). Thankfully from this orthonormal a Hermitian basis can be constructed by letting taking a pair of basis elements $E_{ij}$ and $E_{ji}$ and defining a new basis as 
+        $$
+        X=\frac{E_{ij}+E_{ji}}{\sqrt{2}},\quad \text{and}\quad Y=\frac{E_{ij}-E_{ji}}{-i\sqrt{2}}$$
+
+        Note that $X=X^\dagger$ by swapping the indices and commuting the addition in the numerator. $Y = Y^\dagger$ by the same process except that the sign on the denominator flips and the negative one can be moved to the numerator to achieve equality. Thus both $X$ and $Y$ are Hermitian and combine these with $Z=E_{ii}$ the diagonals to have are a normalized Hermitian basis. 
+
+        Further note that $X,Y$, and $Z$ are orthogonal as $(X,Y) = (X,Z) = (Z,Y) = 0$ which completes the orthonormal basis of Hermitian Matrices for $L_V$.
+    \end{enumerate}
+\end{solution}
+
+
+
+
+\subsection{Exercise} \textbf{(Commutation relation for the Pauli matrices)} Verify the commutations relations
+$$
+[X,Y] = 2iZ; \quad [Y,Z] = 2iX; \quad [Z,X] = 2iY$$
+There is an elegant way of writing this using $\varepsilon_{jkl}$, the antisymmetric tensor on three indices, for which $\varepsilon_{jkl}=0$ except for $\varepsilon_{123}=\varepsilon_{231}=\varepsilon_{312}=1$, and $\varepsilon_{321}=\varepsilon_{213}=\varepsilon_{132}=-1$:
+$$[\sigma_j,\sigma_k]=2i\sum^3_{l=1}\varepsilon_{jkl}\sigma_l$$
+
+\begin{solution}
+Verifying...
+    $$
+    [X,Y] = \begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix}\begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix}-\begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix}\begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix} =\begin{bmatrix}
+        i & 0 \\ 0 & -i
+    \end{bmatrix}-\begin{bmatrix}
+        -i & 0 \\ 0 & i
+    \end{bmatrix}=2i\begin{bmatrix}
+        1 & 0 \\ 0 & -1
+    \end{bmatrix}=2iZ$$
+    $$
+    [Y,Z] = \begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix}\begin{bmatrix}
+        1 & 0 \\ 0 & -1
+    \end{bmatrix}-\begin{bmatrix}
+        1 & 0 \\ 0 & -1
+    \end{bmatrix}\begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix} = \begin{bmatrix}
+        0 & i \\ i & 0
+    \end{bmatrix}-\begin{bmatrix}
+        0 & -i \\ -i & 0
+    \end{bmatrix} =2i\begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix}=2iX
+    $$
+    $$
+    [Z,X]=\begin{bmatrix}
+        1 & 0 \\ 0 & -1
+    \end{bmatrix}\begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix}-\begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix}\begin{bmatrix}
+        1 & 0 \\ 0 & -1
+    \end{bmatrix}=\begin{bmatrix}
+        0 & 1 \\ -1 & 0
+    \end{bmatrix}-\begin{bmatrix}
+        0 & -1 \\ 1 & 0
+    \end{bmatrix}=\frac{-2}{i}\begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix}=2iY$$
+    For the last steps of $[Z,X]$, multiply by $\frac{i}{i}$ and note that $i =-\frac{1}{i}$.
+\end{solution}
+
+
+
+
+
 
 
 

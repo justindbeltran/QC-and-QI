@@ -949,6 +949,109 @@ Verifying...
 
 
 
+\subsection{Exercise} \textbf{(Anti-commutation relations for the Pauli matrices)} Verify the anti-commutation relations $$\{\sigma_i,\sigma_j\}=0$$ where $i\neq j$ are both chosen from the set 1, 2, 3. Also verify that $(i=0,1,2,3)$ $$\sigma_i^2=I$$
+
+
+\begin{solution}
+    Since $\{\sigma_i,\sigma_j\} = \sigma_i\sigma_j + \sigma_j\sigma_i =  \sigma_j\sigma_i +\sigma_i\sigma_j = \{\sigma_j,\sigma_i\}$ only half need to be calculated explicitly:
+    $$\{\sigma_1,\sigma_2\}= \begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix}\begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix} + \begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix}\begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix} =\begin{bmatrix}
+        i & 0 \\ 0 & -i
+    \end{bmatrix}+\begin{bmatrix}
+        -i & 0 \\ 0 & i
+    \end{bmatrix} = \textbf{0}
+    $$ $$
+    \{\sigma_2,\sigma_3\}=\begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix}\begin{bmatrix}
+        1 & 0 \\ 0 & -1
+    \end{bmatrix}+\begin{bmatrix}
+        1 & 0 \\ 0 & -1
+    \end{bmatrix}\begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix} = \begin{bmatrix}
+        0 & i \\ i & 0
+    \end{bmatrix}+\begin{bmatrix}
+        0 & -i \\ -i & 0
+    \end{bmatrix} = \textbf{0}
+    $$ $$
+    \{\sigma_3,\sigma_1\} =\begin{bmatrix}
+        1 & 0 \\ 0 & -1
+    \end{bmatrix}\begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix} + \begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix}\begin{bmatrix}
+        1 & 0 \\ 0 & -1
+    \end{bmatrix}=\begin{bmatrix}
+        0 & 1 \\ -1 & 0
+    \end{bmatrix}+\begin{bmatrix}
+        0 & -1 \\ 1 & 0
+    \end{bmatrix}= \textbf{0}
+    $$
+    which completes the first part of the question. For the second part observe 
+    $$
+    \sigma_0^2 = \begin{bmatrix}
+        1 & 0 \\ 0 & 1
+    \end{bmatrix}\begin{bmatrix}
+        1 & 0 \\ 0 & 1
+    \end{bmatrix} = \begin{bmatrix}
+        1 & 0 \\ 0 & 1
+    \end{bmatrix} =I , \quad\quad \sigma_1^2 = \begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix} \begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix}= \begin{bmatrix}
+        1 & 0 \\ 0 & 1
+    \end{bmatrix} =I
+    $$ $$
+    \sigma_2^2= \begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix}\begin{bmatrix}
+        0 & -i \\ i & 0
+    \end{bmatrix} = \begin{bmatrix}
+        -i^2 & 0 \\ 0 & -i^2
+    \end{bmatrix} =I, \quad\quad \sigma_3^2=\begin{bmatrix}
+        1 & 0 \\ 0 & -1
+    \end{bmatrix}\begin{bmatrix}
+        1 & 0 \\ 0 & -1
+    \end{bmatrix}=\begin{bmatrix}
+        1 & 0 \\ 0 & 1
+    \end{bmatrix} =I
+    $$
+    and that completes the second part.
+    
+\end{solution}
+
+
+
+
+
+\subsection{Exercise} Verify that $$
+AB = \frac{[A,B] + \{A,B\}}{2}.$$
+
+\begin{solution}
+    Expand out and add zero to find 
+    \begin{equation*}
+        \begin{split}
+            AB &= AB/2 +AB/2 + (BA/2 -BA/2) \\
+            &= (AB -BA)/2 + (AB + BA)/2 \\
+            &= \frac{[A,B]}{2}+\frac{\{A,B\}}{2}=\frac{[A,B] + \{A,B\}}{2}
+        \end{split}
+    \end{equation*}
+    
+\end{solution}
+
+
+
+
 
 
 

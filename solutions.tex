@@ -1053,6 +1053,32 @@ AB = \frac{[A,B] + \{A,B\}}{2}.$$
 
 
 
+\subsection{Exercise} Show that for $j,k=1,2,3$,
+$$\sigma_j\sigma_k = \delta_{jk}I+i\sum\varepsilon_{jkl}\sigma_l.$$
+
+\begin{solution}
+    From 2.42 expand $\sigma_j\sigma_k$ to the form with the commutator and anti-commutator then apply 2.41 to the anti-commutator and the 2.40 to the commutator to find 
+    $$\sigma_j\sigma_k =\frac{[\sigma_j,\sigma_k ]+\{\sigma_j,\sigma_k \}}{2}=\frac{[\sigma_j,\sigma_k ]}{2}+\frac{\{\sigma_j,\sigma_k \}}{2}=\frac{2i\sum\varepsilon_{jkl}\sigma_l}{2}+\frac{2\delta_{jk}I}{2}=\delta_{jk}I+i\sum\varepsilon_{jkl}\sigma_l$$ 
+    which was to be shown. $\square$
+
+    While not shown explicitly the sums are over $l=1,2,3$.
+\end{solution}
+
+
+
+\subsection{Exercise} Suppose $[A,B] = 0$, $\{A,B\}=0$, and $A$ is invertible. Show that $B$ must be 0. 
+
+\begin{solution}
+    If $[A,B] = 0$ and $\{A,B\}=0$ then $[A,B] = \{A,B\}=0$ so 
+    $$AB-BA=AB +BA \implies \quad AB-BA-AB -BA=0 \implies \quad -2BA =0 $$
+    Now divide out the $-2$ leaving $BA=0$ and note that since $A$ is invertible $AA^{-1}=I$ and if $A=0$ then $AA^{-1}\neq I$ thus $A\neq 0$. Therefore for $BA$ to equal $0$, $B$ must equal $0$. 
+\end{solution}
+
+
+
+
+
+
 
 
 

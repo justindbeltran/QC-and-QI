@@ -1099,6 +1099,31 @@ Recall that $$(AB)^\dagger=\bigg(\sum_{i,j}a_{ij}b_{ji}\bigg)^\dagger =\sum_{i,j
 
 
 
+\subsection{Exercise} Suppose $A$ and $B$ are Hermitian. Show that $i[A,B]$ is Hermitian.
+
+\begin{solution}
+    Recall for a Hermitian matrix $M$ then $M=M^\dagger$ and observe 
+    $$ 
+    i[A,B]=i(AB-BA)=iAB-iBA=iA^\dagger B^\dagger-iB^\dagger A^\dagger=(-iBA)^\dagger +(iAB)^\dagger=(iAB-iBA)^\dagger=(i[A,B])^\dagger$$
+    which was to be shown.
+\end{solution}
+
+
+
+\subsection{Exercise} What is the polar decomposition of a positive matrix $P$? Of a unitary matrix $U$? Of a Hermitian matrix, $H$?
+
+\begin{solution}
+
+    The polar decomposition of a positive matrix $P$ is simply $P=IP=PI$ where $P=J$ in 2.79 and $I=U$.
+
+    The polar decomposition of a unitary matrix $U$ is $U=UI=IU$ since $U$ is already unitary and $I$ is positive.
+
+    The polar decomposition of a Hermitian matrix $H$ can be split into two cases; $H$ is positive or all zero then refer to the above $P$ matrix decomposition, $H$ is negative definite. If $H$ is negative definite then $J=\sqrt{H^\dagger H}=\sqrt{H^2}=|H|$ is a positive operator (principal square root) and $U=sign(H)=\sum_i sign(\lambda_i)\ket{i}\bra{i}$. Thus $H=sign(H) \cdot |H|$ or in other words its decomposed into a positive matrix component and a negative unitary component. 
+\end{solution}
+
+
+
+
 
 
 

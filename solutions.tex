@@ -1122,6 +1122,72 @@ Recall that $$(AB)^\dagger=\bigg(\sum_{i,j}a_{ij}b_{ji}\bigg)^\dagger =\sum_{i,j
 \end{solution}
 
 
+\subsection{Exercise} Express the polar decomposition of a normal matrix in the outer product representation. 
+
+\begin{solution}
+    Recall a normal matrix is defined as $A^\dagger A=AA^\dagger$ and from \textit{Theorem 2.3} $A=UJ=KU$ where $J=\sqrt{A^\dagger A}$ and $K=\sqrt{AA^\dagger}$ then since $A$ is normal $J=K$ which are positive operators. Since the polar factors $U,J$ commute and are diagonalizable they share an eigenbasis. Using the spectral theorem to decompose them yields. 
+    $$A = UJ= U\sum_i\lambda_i\ket{i}\bra{i}=\sum_i\lambda_i\ket{i}\bra{i}U \quad \text{ where $\lambda_i\geq0$}$$
+    and $U=\sum_i\ket{e_i}\bra{i}=\sum_iu_i\ket{i}\bra{i}$. Plugging in gives
+    $$
+    A=U\sum_i|\lambda_i|\ket{i}\bra{i}=\sum_i|\lambda_i|\ket{e_i}\braket{i}\bra{i}=\sum_i|\lambda_i|\ket{e_i}\bra{i}=\sum_i u_i|\lambda_i|\ket{i}\bra{i}$$
+    which is a polar decomposition of a normal matrix in outer product representation.
+\end{solution}
+
+
+
+
+
+\subsection{Exercise} Find the left and right polar decompositions of the matrix $$\begin{bmatrix}
+    1 & 0 \\ 1 & 1
+\end{bmatrix}$$
+
+\begin{solution}
+    Let $A$ equal the matrix above then $A^\dagger=\begin{bmatrix}
+        1 & 1 \\ 0 & 1
+    \end{bmatrix}$ then $J=\sqrt{A^\dagger A}=\sqrt{\begin{bmatrix}
+        2 & 1 \\ 1 & 1
+    \end{bmatrix}}$. To square root the matrix, start by diagonalizing so 
+    $$\det\bigg(\begin{bmatrix}
+        2-\lambda & 1 \\ 1 & 1-\lambda
+    \end{bmatrix}\bigg)=\lambda^2-3\lambda+1=0\implies \quad\lambda_1,\lambda_2=\frac{3\pm\sqrt{5}}{2}$$
+    and the eigenvectors are given by 
+    $$
+    \begin{bmatrix}
+        2-\frac{3+\sqrt{5}}{2} & 1 \\ 1 & 1-\frac{3+\sqrt{5}}{2}
+    \end{bmatrix}\begin{bmatrix}
+        e_1 \\ e_2
+    \end{bmatrix}=\textbf{0}\implies \vec{e_1}=\begin{bmatrix}
+        \frac{1+\sqrt{5}}{2} \\ 1
+    \end{bmatrix}, \quad \begin{bmatrix}
+        2-\frac{3-\sqrt{5}}{2} & 1 \\ 1 & 1-\frac{3+\sqrt{5}}{2}
+    \end{bmatrix}\begin{bmatrix}
+        e_1 \\ e_2
+    \end{bmatrix}=\textbf{0}\implies \vec{e_1}=\begin{bmatrix}
+        \frac{1-\sqrt{5}}{2} \\ 1
+    \end{bmatrix}$$
+    then $J=\sqrt{\lambda_1}\ket{e_1}\bra{e_1}/\norm{e_1}^2+\sqrt{\lambda_2}\ket{e_2}\bra{e_2}/\norm{e_2}^2$ $$=\sqrt{\frac{3+\sqrt{5}}{2}}\begin{bmatrix}
+        \frac{(1+\sqrt{5} )^2}{4} & \frac{1+\sqrt{5}}{2} \\ \frac{1+\sqrt{5}}{2} & 1
+    \end{bmatrix}/(10 +2\sqrt{5}) + 
+    \sqrt{\frac{3-\sqrt{5}}{2}}\begin{bmatrix}
+        \frac{(1-\sqrt{5} )^2}{4} & \frac{1-\sqrt{5}}{2} \\ \frac{1-\sqrt{5}}{2} & 1
+    \end{bmatrix}/(10 +2\sqrt{5})= \frac{1}{\sqrt{5}}\begin{bmatrix}
+        3 & 1 \\ 1 & 2
+    \end{bmatrix}
+    $$ 
+    and $K=J^{-1}=\frac{1}{5}\begin{bmatrix}
+        2\sqrt{5} & -\sqrt{5} \\ -\sqrt{5} & 3 \sqrt{5}
+    \end{bmatrix}$. Now all that is left is to calculate $U$ using $A=UJ\implies U=AJ^{-1}=AK$
+    $$AK=\begin{bmatrix}
+        1 & 0 \\ 1 & 1
+    \end{bmatrix}\frac{1}{5}\begin{bmatrix}
+        2\sqrt{5} & -\sqrt{5} \\ -\sqrt{5} & 3 \sqrt{5}
+    \end{bmatrix}=\frac{1}{\sqrt{5}}\begin{bmatrix}
+        2 & -1 \\ 1 & 2
+    \end{bmatrix}=U$$
+    where $UJ$ or $KU$ represent the left and right polar representations respectively.
+\end{solution}
+
+
 
 
 

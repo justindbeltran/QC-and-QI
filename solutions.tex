@@ -1189,6 +1189,43 @@ Recall that $$(AB)^\dagger=\bigg(\sum_{i,j}a_{ij}b_{ji}\bigg)^\dagger =\sum_{i,j
 
 
 
+\subsection{Exercise} Verify that the Hadamard gate $H$ is unitary.
+
+\begin{solution} 
+    A unitary $U$ is defined as $U^\dagger U = UU^\dagger=I$ and 
+    $H=\frac{1}{\sqrt{2}}\begin{bmatrix}
+        1 & 1 \\ 1 & -1
+    \end{bmatrix}$ so note that $H^\dagger=(H^*)^T=H$ since $H$ is real and symmetric then 
+    $$HH=\frac{1}{\sqrt{2}}\begin{bmatrix}
+        1 & 1 \\ 1 & -1
+    \end{bmatrix}\frac{1}{\sqrt{2}}\begin{bmatrix}
+        1 & 1 \\ 1 & -1
+    \end{bmatrix}=\frac{1}{2}\begin{bmatrix}
+        1 +1 & 1- 1 \\ 1 -1 & 1+1
+    \end{bmatrix}=\frac{1}{2}\begin{bmatrix}
+        2 & 0 \\ 0 & 2
+    \end{bmatrix}=I$$
+    thus $H$ is unitary.
+\end{solution}
+
+
+\subsection{Exercise} Verify that $H^2=I$
+
+\begin{solution}
+    Similar to 2.51 calculate 
+    $$H^2=\frac{1}{\sqrt{2}}\begin{bmatrix}
+        1 & 1 \\ 1 & -1
+    \end{bmatrix}\frac{1}{\sqrt{2}}\begin{bmatrix}
+        1 & 1 \\ 1 & -1
+    \end{bmatrix}=\frac{1}{2}\begin{bmatrix}
+        1 +1 & 1- 1 \\ 1 -1 & 1+1
+    \end{bmatrix}=\frac{1}{2}\begin{bmatrix}
+        2 & 0 \\ 0 & 2
+    \end{bmatrix}=I \quad \text{verified.}$$
+\end{solution}
+
+
+
 
 
 

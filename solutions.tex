@@ -1227,6 +1227,54 @@ Recall that $$(AB)^\dagger=\bigg(\sum_{i,j}a_{ij}b_{ji}\bigg)^\dagger =\sum_{i,j
 
 
 
+\subsection{Exercise} What are the eigenvalues and eigenvectors of $H$?
+
+\begin{solution}
+    Calculating
+    $$\det(H-\lambda I)=
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}}-\lambda & \frac{1}{\sqrt{2}} \\
+        \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}-\lambda
+    \end{bmatrix}=
+    \lambda^2 -1\quad\implies\quad \lambda_{1,2}=\pm 1$$
+    with eigenvectors 
+    $$\begin{bmatrix}
+        \frac{1}{\sqrt{2}}-1 & \frac{1}{\sqrt{2}} \\
+        \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}-1
+    \end{bmatrix}\ket{e_1}=\textbf{0}\implies\ket{e_1}=\begin{bmatrix}
+        1+\sqrt{2} \\ 1
+    \end{bmatrix}, \quad
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}}+1 & \frac{1}{\sqrt{2}} \\
+        \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}+1
+    \end{bmatrix}\ket{e_2}=\textbf{0}\implies\ket{e_2}=\begin{bmatrix}
+        1-\sqrt{2} \\ 1
+    \end{bmatrix}$$
+    with normalization of 
+    $$\frac{\ket{e_1}}{\sqrt{\braket{e_1}}}=\frac{1}{\sqrt{4+2\sqrt{2}}}\begin{bmatrix}
+        1+\sqrt{2} \\ 1
+    \end{bmatrix}, \quad \frac{\ket{e_2}}{\sqrt{\braket{e_2}}}=\frac{1}{\sqrt{4-2\sqrt{2}}}\begin{bmatrix}
+        1-\sqrt{2} \\ 1
+    \end{bmatrix}$$
+\end{solution}
+
+
+
+\subsection{Exercise} Suppose $A$ and $B$ are commuting Hermitian operators. Prove that $\exp(A)\exp(B)=\exp(A+B)$. (\textit{Hint}: Use the results of Section 2.1.9.)
+
+\begin{solution}
+    Recall that 2.1.9 discusses the commutator and anti-commutator but more importantly also contains \textit{Theorem 2.2} which states that $[A,B]=0 \iff $ there exists an orthonormal basis s.t. both $A$ and $B$ are diagonal w.r.t. that basis.
+
+    Since $A$ and $B$ commute then $[A,B]=0$ so they simultaneously diagonalizable.
+    $$\exp(A)\exp(B)=\sum_i\exp(a_i)\ket{i}\bra{i}\sum_i\exp(b_i)\ket{i}\bra{i}
+    =\sum_i\exp(a_i)\exp(b_i)\ket{i}\bra{i}=\sum_i\exp(a_i+b_i)\ket{i}\bra{i}
+    $$ 
+    $\quad 
+    =\exp(A+B)\quad \square$
+    which was to be shown.
+\end{solution}
+
+
 
 
 

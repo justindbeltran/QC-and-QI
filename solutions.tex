@@ -1276,6 +1276,51 @@ Recall that $$(AB)^\dagger=\bigg(\sum_{i,j}a_{ij}b_{ji}\bigg)^\dagger =\sum_{i,j
 
 
 
+\subsection{Exercise} Prove that $U(t_1,t_2)$ defined in Equation (2.91) is unitary.
+
+\begin{solution}
+    Recall that a unitary $U^\dagger U=UU^\dagger=I$ and  Equation 2.91 was defined as
+    $$ U(t_1,t_2)=\exp\bigg[\frac{-iH(t_2-t_1)}{\hbar}\bigg] $$
+    where Hamiltonian $H$ is a hermitian operator with spectral decomposition $H=\sum E\ket{E}\bra{E}$ so
+    $$
+    U(t_1,t_2)=\exp\bigg[\frac{-iH(t_2-t_1)}{\hbar}\bigg]
+    =\exp\bigg[\frac{-i\sum_EE\ket{E}\bra{E}(t_2-t_1)}{\hbar}\bigg] 
+    = \sum_E\exp\bigg[\frac{-iE(t_2-t_1)}{\hbar}\bigg] \ket{E}\bra{E}
+    $$ and note $e^{A^\dagger}=(e^A)^\dagger$ so its adjoint is
+    $$
+    U(t_1,t_2)^\dagger=\exp\bigg[\frac{-iH(t_2-t_1)}{\hbar}\bigg]^\dagger
+    =\exp\bigg[\frac{-i\sum_EE\ket{E}\bra{E}(t_2-t_1)}{\hbar}\bigg] ^{T*}
+    = \sum_E\exp\bigg[\frac{iE(t_2-t_1)}{\hbar}\bigg] \ket{E}\bra{E}
+    $$
+    then 
+    \begin{equation*}
+        \begin{split}
+            UU^\dagger&=\sum_E\exp\bigg[\frac{-iE(t_2-t_1)}{\hbar}\bigg] \ket{E}\bra{E}\sum_{F}\exp\bigg[\frac{iF(t_2-t_1)}{\hbar}\bigg] \ket{F}\bra{F} \\
+            &=\sum_E\exp\bigg[\frac{-iE(t_2-t_1)}{\hbar}\bigg]\exp\bigg[\frac{iE(t_2-t_1)}{\hbar}\bigg] \delta_{EF}\ket{E}\bra{E} \\
+            &=\sum_E\exp\bigg[\frac{-iE(t_2-t_1)}{\hbar}+\frac{iE(t_2-t_1)}{\hbar}\bigg] \ket{E}\bra{E} \\
+            &=\sum_E e^0\ket{E}\bra{E} = I
+        \end{split}
+    \end{equation*}
+    which was to be shown.
+\end{solution}
+
+
+
+
+\subsection{Exercise} Use the spectral decomposition to show that $K\equiv-i\log(U)$ is Hermitian for any unitary $U$, and thus $U=\exp (iK)$ for some hermitian $K$.
+
+\begin{solution}
+    Recall that a unitary $U^\dagger U=UU^\dagger=I$ with eigenvalues of form $e^{i\theta}$ for a real $\theta$ and Hermitian $A^\dagger=A$ "self-adjoint" so to show $K\equiv-i\log(U)$ expand $U$ into its spectral decomposition with eigenvalue $\lambda_u=e^{i\theta_u}$
+    $$K=-i\log(U)
+    =-i\log\bigg(\sum_u e^{i\theta_u}\ket{u}\bra{u}\bigg)
+    =-i\sum_u \log (e^{i\theta_u})\ket{u}\bra{u}
+    =-i\sum_u i\theta_u\ket{u}\bra{u}
+    =\sum_u \theta_u\ket{u}\bra{u}$$
+    which is a real diagonal matrix in basis $u$ so $K=K^\dagger$ thus it is Hermitian. 
+\end{solution}
+
+
+
 
 
 

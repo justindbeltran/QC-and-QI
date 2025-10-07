@@ -1321,6 +1321,33 @@ Recall that $$(AB)^\dagger=\bigg(\sum_{i,j}a_{ij}b_{ji}\bigg)^\dagger =\sum_{i,j
 
 
 
+\subsection{Exercise} \textbf{(Cascaded measurements are single measurements)} Suppose $\{L_l\}$ and $\{M_m\}$ are two sets of measurement operators. Show that a measurement defined by the measurement operators  $\{L_l\}$ followed by a measurement defined by the measurement operators $\{M_m\}$ is physically equivalent to a single measurement defined by the measurement operators $\{N_n\}$ with representation $N_{lm}\equiv M_m L_l$.  
+
+\begin{solution}
+    Measuring in $\{L_l\}$ then $\{M_m\}$ on some state $\ket{\psi}$ yields
+    $$\ket{\psi} \overset{\text{ measure } L_l}{\rightarrow} \quad 
+    \frac{L_l\ket{\psi}}{\sqrt{\bra{\psi}L_l^\dagger L_l\ket{\psi}}}
+    \quad \overset{\text{ measure } M_m}{\rightarrow} \quad 
+    \frac{M_mL_l\ket{\psi}}{\sqrt{\bra{\psi}L_l^\dagger M_m^\dagger M_m  L_l\ket{\psi}}} 
+    \quad \equiv \quad \frac{N_{lm}\ket{\psi}}{\sqrt{\bra{\psi}N_{lm}^\dagger N_{lm} \ket{\psi}}}$$
+    since $N_{lm}\equiv M_m L_l$.
+\end{solution}
+
+
+
+\subsection{Exercise} Suppose we prepare a quantum system in an eigenstate $\ket{\psi}$ of some observable $M$, with corresponding eigenvalue $m$. What is the average observed value of $M$, and the standard deviation? 
+
+\begin{solution}
+    Recall $M=\sum_m mP_m$ where $P_m$ is the projector onto eigenspace $M$ with eigenvalue $m$. Then the observed value of $M$ is 
+    $$\expval{M} = \bra{\psi}M\ket{\psi} = \bra{\psi}m\ket{\psi} = \braket{\psi}m = m $$
+    since $\ket{\psi}$ is an eigenstate of $M$ corresponding to $m$. Recall that the standard deviation is defined as $\Delta(M) = \sqrt{\expval{M^2}-\expval{M}^2}$ then calculating it by plugging in the first part is 
+    $$
+    \Delta(M) = \sqrt{\expval{M^2}-\expval{M}^2} = \sqrt{\bra{\psi}M^2\ket{\psi}-m^2}=\sqrt{\bra{\psi}m^2\ket{\psi}-m^2} = \sqrt{m^2-m^2} =0$$
+    noting that $$\bra{\psi}M^2\ket{\psi}=\bra{\psi}M^\dagger M\ket{\psi} = \bra{\psi}\big(\sum_m mP_m\big)^\dagger\sum_m mP_m \ket{\psi} = \bra{\psi}\big(\sum_m m^* P_m\big) \sum_m mP_m \ket{\psi} = \bra{\psi}m^2\ket{\psi}$$
+    since the projectors are either the \textbf{0} matrix or the same so the sums can be combined.
+\end{solution}
+
+
 
 
 

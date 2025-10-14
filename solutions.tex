@@ -1392,6 +1392,40 @@ Recall that $$(AB)^\dagger=\bigg(\sum_{i,j}a_{ij}b_{ji}\bigg)^\dagger =\sum_{i,j
 \end{solution}
 
 
+\subsection{Exercise} Calculate the probability of obtaining the result $+1$ for a measurement of $\vec{v}\cdot \vec{\sigma}$, given that the state prior to measurement is $\ket{0}$. What is the state of the system after the measurement if $+1$ is obtained?
+
+\begin{solution}
+    The probability of getting result $+1$ is given by $p(+1)=\bra{0}P_+\ket{0}$ where from 2.60 
+    $$
+    P_+=\frac{1}{2}\begin{bmatrix}
+        1+v_3 & v_1-iv_2 \\ v_1+iv_2   & 1-v_3
+    \end{bmatrix} \quad \text{ then }\quad  p(+1) = \bra{0}P_+\ket{0}= \frac{1}{2}\bigg(\bra{0}\begin{bmatrix}
+        1+v_3 \\ 0 \end{bmatrix} + \bra{0}\begin{bmatrix}
+        0 \\ v_1+iv_2 \end{bmatrix}\bigg)
+        = \frac{1+v_3}{2}
+        $$
+
+    and given that $+1$ occurred, the state immediately after measurement is give by $\frac{P_m\ket{\psi}}{\sqrt{p(m)}}$ so 
+    \[
+    \frac{P_+\ket{0}}{\sqrt{p(+1)}}=\frac{ \frac{1+v_3}{2}\ket{0}+\frac{v_1+iv_2}{2}\ket{1}}{\sqrt{ \frac{1+v_3}{2}}}
+    =\sqrt{ \frac{1+v_3}{2}}\ket{0} + \frac{v_1+iv_2}{\sqrt{2+2v_3}}\ket{1}\]
+\end{solution}
+
+
+
+\subsection{Exercise} Show that any measurement where the measurement operators and the POVM elements coincide is a projective measurement.
+
+\begin{solution}
+    Recall the measurement operators $\{M_m\}$ and POVM elements $\{E_m\}$ (where $E_m \equiv M_m^\dagger M_m$). Then if the measurement operators and POVM elements coincide $M_m=E_m$ which equates $M_m= E_m= M_m^\dagger M_m = M_m^2$. Note that since $M_m=E_m$ the following holds
+    $$
+    \bra{\psi}M^\dagger_m M_m\ket{\psi}= \braket{M_m\psi}=\norm{M_m\psi}^2 \geq 0$$ so $M_m$ is positive and thus Hermitian. Since $M_m$ is idempotent (can be applied multiple times as though it was only applied once) and it is Hermitian, it can be written as 
+    $$
+    M_m = \sum_m \ket{m}\bra{m} \equiv P_m \quad \text{ thus it is a projective measurement.}$$
+\end{solution}
+
+
+
+
 
 
 

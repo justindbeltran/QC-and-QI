@@ -1425,7 +1425,26 @@ Recall that $$(AB)^\dagger=\bigg(\sum_{i,j}a_{ij}b_{ji}\bigg)^\dagger =\sum_{i,j
 
 
 
+\subsection{Exercise} Suppose a measurement is described by measurement operators $M_m$. Show that there exists unitary operators $U_m$ such that $M_m = U_m\sqrt{E_m}$, where $E_m$ is the POVM associated to the measurement.
 
+\begin{solution}
+    Note $E_m = M_m^\dagger M_m$ and recall \textbf{Theorem 2.3 Polar Decomposition}: Let $A$ be a linear operator on a vector space $V$ then $\exists U$ and positive operators $J,K$ s.t. $A=UJ=KU$ where $J= \sqrt{A^\dagger A}$ and $K=\sqrt{AA^\dagger}$. For this problem only \textit{left polar decomposition} matters. Since $M_m$ is a linear operator then $\exists U$ s.t. 
+    $$ M_m=U_m \sqrt{M_m^\dagger M_m} = U_m\sqrt{E_m} \quad \text{ which was to be shown. } \square$$
+\end{solution}
+
+
+\subsection{Exercise} Suppose Bob is given a quantum state chosen from a set $\ket{\psi_1},...,\ket{\psi_m}$ of linearly independent states. Construct a POVM $\{E_1,E_2,...,E_{m+1}\}$ such that if outcome $E_i$ occurs, $1\leq i \leq m$, then Bob knows with certainty that he was given state $\ket{\psi_i}$. (The POVM must be such that $\bra{\psi_i} E_i \ket{\psi_i}>0$ for each $i$.)
+
+\begin{solution}
+    Given set $\ket{\psi_1},...,\ket{\psi_m}$ of linearly independent states in some vector space $V$ use the Gram matrix to construct a matrix with entry $G_{ij} = \braket{\psi_i}{\psi_j}$ since it was constructed by linearly independent vectors then it is invertible. 
+    
+    Define $\ket{\tilde{\psi_i}}= \sum_{k=1}^mG^{-1}_{ki} \ket{\psi_k}$ and note $G$ is Hermitian by the conjugate-symmetry of the inner product
+    $$\braket{\tilde{\psi_i}}{\psi_j}= \sum_{k=1}^mG^{-1}_{ki} \braket{\psi_k}{\psi_j}
+    =\sum_{k=1}^mG^{-1}_{ik} G_{kj}=(G^{-1}G)_{ij}=\delta_{ij}$$
+    so $\ket{\tilde{\psi_i}}$ is orthogonal to all other vectors in set $\ket{\psi_1},...,\ket{\psi_{m}}$. Now take these orthogonal states to construct
+    $$E_i = c_i\ket{\tilde{\psi_i}}\bra{\tilde{\psi_i}} \text{ for }i \in [1,m] \quad \text{ and } \quad E_{m+1} = I - \sum_{i=1}^mE_i$$  
+    where each $c_i$ are sufficiently small positive constants to let the remainder $E_{m+1}$ be positive.
+\end{solution}
 
 
 

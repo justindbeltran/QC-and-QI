@@ -1449,6 +1449,33 @@ Recall that $$(AB)^\dagger=\bigg(\sum_{i,j}a_{ij}b_{ji}\bigg)^\dagger =\sum_{i,j
 
 
 
+\subsection{Exercise} Express the states $(\ket{0}+\ket{1})/\sqrt{2}$ and $(\ket{0}-\ket{1})/\sqrt{2}$ in a basis in which they are \textit{not} the same up to a relative phase shift.
+
+\begin{solution}
+    A natural choice is to express the above vectors in the hadamard basis as 
+    $$(\ket{0}+\ket{1})/\sqrt{2}=\ket{+}\equiv \ket{0}_H \quad \text{ and } \quad (\ket{0}-\ket{1})/\sqrt{2}=\ket{-}\equiv\ket{1}_H $$
+    These are now orthonormal basis vectors and not the same up to a relative phase shift.
+\end{solution}
+
+
+\subsection{Exercise} Show that the average value of the observable $X_1Z_2$ for a two qubit system measured in the state $(\ket{00}+\ket{11})/\sqrt{2}$ is zero.
+
+\begin{solution}
+    Recall a measurement by an observable $M=\sum m P_m$ is $\bra{\psi}M\ket{\psi}$ Apply the given two qubit observable to the given state to find
+    \begin{equation*}
+        \begin{split}      
+ \bra{\Phi^+}X_1Z_2\ket{\Phi^+} &= \frac{1}{\sqrt{2}}\big(\bra{00}+\bra{11}) X_1Z_2\frac{1}{\sqrt{2}}\big(\ket{00}+\ket{11}) \\
+    &= \frac{1}{2}\big(\bra{00}+\bra{11})\big(X_1Z_2\ket{00}+X_1Z_2\ket{11}) \\
+     &= \frac{1}{2}\big(\bra{00}+\bra{11})\big(\ket{10}-\ket{01}) \\
+     &= \frac{1}{2}\big(\braket{00}{10} -\braket{00}{01} + \braket{11}{10} - \braket{11}{01}\big) \\
+     &= \frac{1}{2}(0 - 0 +0 -0)= 0
+        \end{split}
+    \end{equation*}
+    which was to be shown.
+\end{solution}
+
+
+
 
 
 

@@ -1475,6 +1475,42 @@ Recall that $$(AB)^\dagger=\bigg(\sum_{i,j}a_{ij}b_{ji}\bigg)^\dagger =\sum_{i,j
 \end{solution}
 
 
+\subsection{Exercise} Suppose $V$ is a Hilbert space with a subspace $W$. Suppose $U:W\rightarrow V$ is a linear operator which preserves inner products, that is , for any $\ket{w_1}$ and $\ket{w_2}$ in $W$,
+$$\bra{w_1}U^\dagger U \ket{w_2}=\braket{w_1}{w_2}.$$
+Prove that there exists a unitary $U^\prime : V \rightarrow V$ which \textit{extends} $U$. 
+That is, $U^\prime \ket{w}=U\ket{w}$ for all $\ket{w}$ in $W$, but $U^\prime$ is defined on the entire space $V$. Usually we omit the prime symbol ' and just write $U$ to denote the extension.
+
+\begin{solution}
+    Note that $U$ is invertible ($U^\dagger = U^{-1}$) so it has spectral decomposition in some orthonormal basis $U=\sum \mu_i\ket{i}\bra{i}$ where the set $\{\ket{i}\}$ spans the subspace $W$. Now $V$ is composed of the orthogonal direct sum $V = W \oplus W^\perp$ give $W^\perp$ some orthonormal basis set $\{\ket{j}\}$ spans its subspace. From here on $+$ means $\oplus$ from context. Then there exists a unitary $U^\prime$ that is $$U^\prime = \sum u_i \ket{i}\bra{i} + \sum \ket{j}\bra{j} \implies 
+    U^\prime\ket{w} = U\ket{w}+\sum \ket{j}\braket{j}{w} = U\ket{w}$$
+    where by linearity of $U^\prime$ and orthogonal vectors ($\ket{j}\notin W$) $\braket{j}{w}=0$ we have the above. 
+    Note $U^{\prime\dagger}=\sum \ket{j}\bra{j}$ because it is an outer product it is symmetric and now $U^\prime$ is unitary by 
+    $$U^\prime U^{\prime\dagger} = \bigg(U + \sum \ket{j_1}\bra{j_1}\bigg)\bigg(U^\dagger + \sum \ket{j_2}\bra{j_2}\bigg)
+    = P_W + \sum U\ket{j_2}\bra{j_2} + \sum U^\dagger\ket{j_1}\bra{j_1} + \sum \ket{j}\bra{j}$$
+    where the final term of the above equation is by recognizing $\braket{j_1}{j_2}=\delta_{j_1j_2}$ reduces what's written. $P_W$ is a projector on subspace $W$. Note that $U\ket{j} = u_i\braket{i}{j}=0$ so the above reduces to
+    $$
+    U^\prime U^{\prime\dagger} = P_W + P_{W^\perp}  = I 
+    $$
+\end{solution}
+
+
+
+\subsection{Exercise} Prove that $\ket{\psi}\neq \ket{a}\ket{b}$ for all single qubit states $\ket{a}$ and $\ket{b}$.
+
+\begin{solution}
+    Recall $\ket{\psi}= (\ket{00}+\ket{11})/\sqrt{2}$ and start by expanding out $\ket{a}\ket{b}$ into the matrix below and set it equal to $\ket{\psi}$ for contradiction.
+    $$\ket{a}\ket{b}
+    = \begin{bmatrix}
+        \alpha_1\beta_1 \\ \alpha_1\beta_2 \\ \alpha_2\beta_1 \\ \alpha_2\beta_2
+    \end{bmatrix} 
+    = \begin{bmatrix}
+       \frac{1}{\sqrt{2}} \\ 0 \\ 0 \\ \frac{1}{\sqrt{2}}
+    \end{bmatrix}  
+    \implies  \begin{aligned}
+        \alpha_1\beta_1 &=  1/\sqrt{2} \\ \alpha_1\beta_2 &= 0\\ \alpha_2\beta_1 &= 0\\ \alpha_2\beta_2 &= 1/\sqrt{2}
+\end{aligned}$$
+ So from the top and bottom lines both $\alpha_1\beta_1$ and $\alpha_2\beta_2$ are non zero otherwise they would equal 0 which implies that all $\alpha_1,\beta_1,\alpha_2,\beta_2 \neq 0$ but $\alpha_1\beta_2 = 0$ which implies that either $\alpha$ or $\beta$ equals 0 and there is the contradiction. This means the initial assumption that $\ket{\psi}= \ket{a}\ket{b}$ was not true and $\ket{\psi}$ can't be decomposed into single qubit states.
+\end{solution}
 
 
 

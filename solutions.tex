@@ -1513,6 +1513,98 @@ That is, $U^\prime \ket{w}=U\ket{w}$ for all $\ket{w}$ in $W$, but $U^\prime$ is
 \end{solution}
 
 
+\subsection{Exercise} Verify that the Bell basis forms an orthonormal basis for the two qubit state space.
+
+\begin{solution}
+
+    A set of basis vectors is orthonormal if each vector is a unit vector and for any two vectors $\ket{i},\ket{j}$ their inner product $\braket{i}{j}=\delta_{ij}$. For the normalization observe 
+    
+    \begin{enumerate}
+        \item $\ket{\phi^+} = (\ket{00}+\ket{11})/\sqrt{2}$ has $\braket{\phi^+}=\frac{1}{2}(\braket{00}+\braket{00}{11}+\braket{11}{00}+\braket{11})= \frac{1}{2}(2)=1$
+        
+        \item $\ket{\phi^-} = (\ket{00}-\ket{11})/\sqrt{2}$ has $\braket{\phi^-}=\frac{1}{2}(\braket{00}-\braket{00}{11}-\braket{11}{00}+\braket{11})= \frac{1}{2}(2)=1$
+
+        \item $\ket{\psi^+} = (\ket{01}+\ket{10})/\sqrt{2}$ has $\braket{\psi^+}=\frac{1}{2}(\braket{01}+\braket{01}{10}+\braket{10}{01}+\braket{10})= \frac{1}{2}(2)=1$
+        
+        \item $\ket{\psi^-} = (\ket{01}-\ket{10})/\sqrt{2}$ has $\braket{\psi^-}=\frac{1}{2}(\braket{01}-\braket{01}{10}-\braket{10}{01}+\braket{10})= \frac{1}{2}(2)=1$
+    \end{enumerate}
+
+    Then orthogonality is shown by 
+    
+    \begin{enumerate}
+        \item $\braket{\phi^+}{\phi^-}= \frac{1}{2}(\bra{00}+\bra{11})(\ket{00}-\ket{11})
+            = \braket{00}-\braket{00}{11}+\braket{11}{00}-\braket{11}=\frac{1}{2}(1-1)=0$
+
+        \item $\braket{\phi^+}{\psi^+}= \frac{1}{2}(\bra{00}+\bra{11})(\ket{01}+\ket{10})
+            = \braket{00}{01}+\braket{00}{10}+\braket{11}{01}+\braket{11}{10}=0$
+
+        \item $\braket{\phi^+}{\psi^-}= \frac{1}{2}(\bra{00}+\bra{11})(\ket{01}-\ket{10})
+            = \braket{00}{01}-\braket{00}{10}+\braket{11}{01}-\braket{11}{10}=0$
+
+        \item $\braket{\phi^-}{\psi^+}= \frac{1}{2}(\bra{00}-\bra{11})(\ket{01}+\ket{10})
+            = \braket{00}{01}+\braket{00}{10}-\braket{11}{01}-\braket{11}{10}=0$
+
+        \item $\braket{\phi^-}{\psi^-}= \frac{1}{2}(\bra{00}-\bra{11})(\ket{01}-\ket{10})
+            = \braket{00}{01}-\braket{00}{10}-\braket{11}{01}+\braket{11}{10}=0$
+
+        \item $\braket{\psi^+}{\psi^-}= \frac{1}{2}(\bra{01}+\bra{10})(\ket{01}-\ket{10})
+            = \braket{01}{01}-\braket{01}{10}+\braket{10}{01}-\braket{10}{10}=\frac{1}{2}(1-1)=0$
+    \end{enumerate}
+
+    and there's no point in calculating the other order of the inner products (i.e. $\braket{\phi^-}{\phi^+}$) by the conjugate symmetry of the inner product.
+\end{solution}
+
+
+
+\subsection{Exercise}
+Suppose $E$ is any positive operator acting on Alice's qubit. Show that $\bra{\psi}E\otimes I\ket{\psi}$ \textit{ takes the same value } when $\ket{\psi}$ is any of the four Bell states. Suppose some malevolent third party ('Eve') intercepts Alice's qubit on the way to Bob in the superdense coding protocol. Can Eve infer anything about which of the four possible bit strings 00, 01, 10, 11 Alice is trying to send? If so, how, or if not, why not?
+
+\begin{solution}
+    For $\ket{\psi}\in \{\ket{\phi^+}, \ket{\phi^-},\ket{\psi^+}, \ket{\psi^-}\}$ that are defined as the following
+    $$\ket{\phi^+} = (\ket{00}+\ket{11})/\sqrt{2}, \quad
+    \ket{\phi^-} = (\ket{00}-\ket{11})/\sqrt{2}, $$ $$
+    \ket{\psi^+} = (\ket{01}+\ket{10})/\sqrt{2}, \quad 
+    \ket{\psi^-} = (\ket{01}-\ket{10})/\sqrt{2}$$
+     which is all vectors of the Bell basis then casing out of the four options show $\bra{\psi}E\otimes I\ket{\psi}$ takes the same value. Now since $E$ is positive it is Hermitian (by Hermiticity of positive operators see Ex 2.24) so $E=E^\dagger$ and w.l.o.g. let $E$ send $E\ket{0}=\alpha\ket{0} +\beta\ket{1}$ and $E\ket{0}=\beta^*\ket{0} +\gamma\ket{1}$. 
+    \begin{equation*}
+            \begin{split}
+                \bra{\phi^+}E\otimes I\ket{\phi^+}
+        &=\bra{\phi^+}(E\otimes I\ket{00}+E\otimes  I\ket{11})/\sqrt{2} 
+        = \bra{\phi^+}((\alpha\ket{0} +\beta\ket{1})\ket{0}+ (\beta^*\ket{0} +\gamma\ket{1})  \ket{1})/\sqrt{2} \\
+        &= \bra{\phi^+}(\alpha\ket{00} +\beta\ket{10} + \beta^*\ket{01} +\gamma\ket{11})  )/\sqrt{2} = (\alpha+\gamma)/\sqrt{2}
+            \end{split}
+        \end{equation*}
+
+    \begin{equation*}
+            \begin{split}
+                \bra{\phi^-}E\otimes I\ket{\phi^-}
+        &=\bra{\phi^-}(E\otimes I\ket{00}-E\otimes  I\ket{11})/\sqrt{2} 
+        = \bra{\phi^-}((\alpha\ket{0} +\beta\ket{1})\ket{0}- (\beta^*\ket{0} +\gamma\ket{1})  \ket{1})/\sqrt{2} \\
+        &= \bra{\phi^-}(\alpha\ket{00} +\beta\ket{10} - \beta^*\ket{01} -\gamma\ket{11})  )/\sqrt{2} = (\alpha+\gamma)/\sqrt{2}
+            \end{split}
+        \end{equation*}
+
+    \begin{equation*}
+            \begin{split}
+                \bra{\psi^+}E\otimes I\ket{\psi^+}
+        &=\bra{\psi^+}(E\otimes I\ket{01}+E\otimes  I\ket{10})/\sqrt{2} 
+        = \bra{\psi^+}((\alpha\ket{0} +\beta\ket{1})\ket{1}+ (\beta^*\ket{0} +\gamma\ket{1})  \ket{0})/\sqrt{2} \\
+        &= \bra{\psi^+}(\alpha\ket{01} +\beta\ket{11} + \beta^*\ket{00} +\gamma\ket{10})  )/\sqrt{2} = (\alpha+\gamma)/\sqrt{2}
+            \end{split}
+        \end{equation*}
+
+    \begin{equation*}
+            \begin{split}
+                \bra{\psi^-}E\otimes I\ket{\psi^-}
+        &=\bra{\psi^-}(E\otimes I\ket{01}-E\otimes  I\ket{10})/\sqrt{2} 
+        = \bra{\psi^-}((\alpha\ket{0} +\beta\ket{1})\ket{1}- (\beta^*\ket{0} +\gamma\ket{1})  \ket{0})/\sqrt{2} \\
+        &= \bra{\psi^-}(\alpha\ket{01} +\beta\ket{11} - \beta^*\ket{00} -\gamma\ket{10})  )/\sqrt{2} = (\alpha+\gamma)/\sqrt{2}
+            \end{split}
+        \end{equation*}
+
+    So $\bra{\psi}E\otimes I\ket{\psi}$ always takes $(\alpha+\gamma)/\sqrt{2}$ as its value. $\square$ This shows that when Eve tries to measure Alice's qubit that no matter what measurement operator $M_m$ she constructs the value will always be the same by the above results. 
+    
+\end{solution}
 
 
 

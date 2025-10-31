@@ -1608,6 +1608,26 @@ Suppose $E$ is any positive operator acting on Alice's qubit. Show that $\bra{\p
 
 
 
+\subsection{Exercise} 
+\textbf{(Criterion to decide if a state is mixed or pure)}
+Let $\rho$ be a density operator. Show that $\Tr(\rho^2)\leq 1$, with equality if and only if $\rho$ is a pure state.
+
+\begin{solution}
+    Recall $\rho = \sum_i p_i \ket{\psi_i}\bra{\psi_i}$ then $\rho$ is positive it is Hermitian so it has spectral decomposition. Now
+    \begin{equation*}
+            \Tr[\rho^2] = \Tr\bigg[\Big(\sum_i \lambda_i \ket{i}\bra{i}\Big)^2\bigg] 
+    =  \Tr\bigg[\sum_i \lambda_i^2 \ket{i}\bra{i}\bigg] = \sum_i \lambda^2_i\Tr[\ket{i} \bra{i}] = \sum_i \lambda^2_i
+    \end{equation*}
+    Note for a density operator $\rho$ the trace is equal to one so $\Tr(\rho) = \sum_i \lambda_i= 1$. Additionally note  $$ \sum_i \lambda^2_i \leq  \big(\sum_i \lambda_i\big)^2 \quad \text {because} \quad \big(\sum_i \lambda_i\big)^2=\sum_{i\neq j} \lambda_i\lambda_j + \sum_i \lambda^2_i$$.
+    which implies that $\Tr(\rho^2) \leq 1$. 
+
+    If $\Tr(\rho^2) = 1$ then $\sum_i \lambda^2_i = 1 =  \big(\sum_i \lambda_i\big)^2$ and the eigenstate corresponding to $\ket{\psi}$ is known exactly since one $\lambda=1$ and all others must equal 0 so it is pure.
+
+    If $\rho$ is pure then $\rho =\rho^2$ thus $\Tr(\rho) = \Tr(\rho^2)=1$  
+\end{solution}
+
+
+
 
 
 

@@ -1627,6 +1627,55 @@ Let $\rho$ be a density operator. Show that $\Tr(\rho^2)\leq 1$, with equality i
 \end{solution}
 
 
+\subsection{Exercise}
+\textbf{(Bloch sphere for mixed states)} The Bloch sphere picture for pure states of a single qubit was introduced in Section 1.2. This description has an important generalization to mixed states as follows. 
+\begin{enumerate}[(1)]
+    \item Show that an arbitrary density matrix for a mixed state qubit may be written as $$\rho = \frac{I + \vec{r}\cdot \vec{\sigma}}{2},$$
+    where $\vec{r}$ is a real three-dimensional vector s.t. $\norm{\vec{r}}\leq 1$. This vector is known as the \textit{Bloch vector} for the state $\rho$
+
+    \item What is the Bloch vector representation for the state $\rho = I/2$?
+
+    \item Show that a state $\rho$ is pure if and only if $\norm{\vec{r}}= 1$.
+
+    \item Show that for pure states the description of the Bloch vector we have given coincides with that in Section 1.2.
+\end{enumerate}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item Expand $\vec{r}\cdot \vec{\sigma}\equiv r_1\sigma_1 + r_2\sigma_2 + r_3\sigma_3$ to find
+    $ \begin{bmatrix} r_3 & r_1-ir_2 \\ r_1+ir_2 & -r_3 \end{bmatrix}$ then $\rho = \frac{1}{2} \begin{bmatrix} 1+r_3 & r_1-ir_2 \\ r_1+ir_2 & 1-r_3 \end{bmatrix}$. Recall from Ex 2.39 that the Pauli's plus the identity form an orthonormal basis for the Hermitian matrices on the $L_V$ Hilbert space. Since a density matrix is always Hermitian then it is a linear combination of $\sigma_i$'s for $i \in 0,1,2,3$ (which are Hermitian so $r_i$ is real) thus $\rho = (I + \vec{r}\cdot \vec{\sigma})/2$ can represent any 2 by 2 Hermitian.
+    
+    Now for $\rho$ to be an arbitrary density matrix it must have $\Tr(\rho) =1$ and $\rho$ is a positive operator. For the trace, $\Tr(\rho) = (1 + r_3+1- r_3)/2=1$. For positivity, recall from 2.60 that $\vec{r}\cdot \vec{\sigma}$ has eigenvalues $\lambda_{1,2}=\pm\sqrt{r_3^2+r_2^2+r_1^2}=\pm \norm{\vec{r}}$ which implies $(I + \vec{r}\cdot \vec{\sigma})/2$ has eigenvalues $(1\pm\norm{\vec{r}})/2$. Finally note, that because $\norm{\vec{r}}\leq 1$ the eigenvalues are greater than or equal to 0 so $\rho$ is PSD. $\square$
+
+    \item Take $r_i$ for each $r,\sigma$ pair to be 0 then $\rho=I/2$ so $r=(0,0,0)$.
+
+    \item From Ex 2.71 recall a density operator $\rho$ is pure $\iff \Tr(\rho^2)=1$. Calculating $\rho^2$ for this problem gives (omitting off diagonals) 
+    $$\rho = \frac{1}{4} \begin{bmatrix} 1+r_3 & r_1-ir_2 \\ r_1+ir_2 & 1-r_3 \end{bmatrix} \begin{bmatrix} 1+r_3 & r_1-ir_2 \\ r_1+ir_2 & 1-r_3 \end{bmatrix}
+    =\frac{1}{4}\begin{bmatrix}
+        (1+r_3)^2+ r_1^2+r^2 & n/a \\ n/a & r_1^2+r_2^2+(1-r^3)^2
+    \end{bmatrix}$$ taking the trace
+    $$\Tr(\rho^2)=[((1+r_3)^2+ r_1^2+r^2)+(r_1^2+r_2^2+(1-r^3)^2)]/4= [1+r_1^2+r^2_2 +r^2_3]/2 $$
+    and note that $r_1^2+r^2_2 +r^2_3=1 \iff \norm{\vec{r}}= 1$ thus $\rho$ is pure $\iff \norm{\vec{r}}= 1$. $\square$
+
+    \item Recall the Bloch vector given in Section 1.2 $\ket{\psi}=\cos\frac{\theta}{2}\ket{0}+e^{i\varphi}\sin\frac{\theta}{2}\ket{1}$ and note that for pure states $\vec{r}$ is a unit vector. Now it's pretty much the $x,y,z\equiv r,\theta,\phi$ from vector calculus but with unit vectors. To see it
+    $$\ket{\psi}\bra{\psi} =\begin{bmatrix}
+        \cos^2\frac{\theta}{2} & e^{-i\varphi}\sin \frac{\theta}{2}\cos \frac{\theta}{2} \\
+        e^{i\varphi}\sin \frac{\theta}{2}\cos \frac{\theta}{2} &\sin^2\frac{\theta}{2}
+    \end{bmatrix}
+    = \begin{bmatrix}
+        \frac{1}{2}(1+\cos\theta) & \frac{1}{2}e^{-i\varphi}\sin \theta \\
+       \frac{1}{2} e^{i\varphi}\sin \theta & \frac{1}{2}(1+\cos\theta) 
+    \end{bmatrix}
+    =\frac{1}{2} \begin{bmatrix}
+        1+\cos\theta & e^{-i\varphi}\sin \theta \\
+        e^{i\varphi}\sin \theta & 1+\cos\theta
+    \end{bmatrix}$$
+    which is equivalent to $(I + \vec{r}\cdot \vec{\sigma})/2$ by mapping $r_1 \mapsto \sin\theta\cos\varphi, \quad r_2 \mapsto \sin\theta\sin\varphi, \quad  r_3 \mapsto \cos\theta$. $\square$
+    \end{enumerate}
+\end{solution}
+
+
+
 
 
 
